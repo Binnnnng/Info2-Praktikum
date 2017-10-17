@@ -8,11 +8,9 @@ string name;
 void vAufgabe_1() {
 	Fahrzeug();
 	Fahrzeug("test");
+	Fahrzeug* ps1;
 	ps1 = new Fahrzeug();
 	cin >> name;
-	ps2 = new Fahrzeug(name);
-	delete 
-	delete 
 }
 
 int main(void) {
