@@ -5,6 +5,7 @@
 using namespace std;
 
 int Fahrzeug::p_iMaxID = 1;
+extern double dGlobaleZeit;
 
 Fahrzeug::Fahrzeug()
 {
@@ -53,13 +54,24 @@ void Fahrzeug::vAusgabe()
 {
 	cout.precision(2);
 	cout << fixed;
-	cout << p_iID;
-	cout.width(10);
-	cout << p_sName;
-	cout.width(10);
-	cout << ":";
-	cout.width(10);
-	cout << p_dMaxGeschwindigkeit;
-	cout.width(10);
+	cout << resetiosflags(ios::right);
+	cout << setiosflags(ios::left);
+	cout << setw(6) << p_iID ;
+	cout << setw(10) << p_sName;
+	cout << setw(5) << ":";
+	cout << setw(15) << p_dMaxGeschwindigkeit ;
 	cout << p_dGesamtStrecke << endl;
+	cout << resetiosflags(ios::left);
+}
+
+void Fahrzeug::vAbfertigung()
+{
+	if (p_dZeit != dGlobaleZeit)
+	{
+		double tDifferenz = dGlobaleZeit - p_dZeit;
+		p_dGesamtStrecke += p_dMaxGeschwindigkeit * tDifferenz;
+		p_dZeit = dGlobaleZeit;
+	}
+	
+
 }

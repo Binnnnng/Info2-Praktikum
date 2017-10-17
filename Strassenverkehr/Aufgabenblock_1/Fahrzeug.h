@@ -10,7 +10,8 @@ public:
 	Fahrzeug(string namestr);
 	Fahrzeug(string namestr, double MaxGeschwindigkeit);
 	virtual ~Fahrzeug();
-	void vAusgabe();
+	void virtual vAusgabe();
+	void virtual vAbfertigung();
 
 private:
 	int p_iID;
