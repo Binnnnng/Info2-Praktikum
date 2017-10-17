@@ -17,7 +17,6 @@ Fahrzeug::Fahrzeug()
 
 Fahrzeug::~Fahrzeug()
 {
-	vInitialisierung();
 	//cout << "Destructor called" << endl;
 	//cout <<p_sName<< "   " <<p_iID<< endl;
 }
