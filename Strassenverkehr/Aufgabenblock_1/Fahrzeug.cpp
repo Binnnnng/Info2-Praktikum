@@ -10,14 +10,14 @@ Fahrzeug::Fahrzeug()
 	p_iID = p_iMaxID;
 	p_iMaxID++;
 	cout << "Standard Contructor called" << endl;
-	cout << p_sName << "   " << p_iID << endl;
+	cout <<p_sName <<"   "<<p_iID<< endl;
 }
 
 
 Fahrzeug::~Fahrzeug()
 {
-	cout << "Deconsructor called" << endl;
-	cout << p_sName << "   " << p_iID << endl;
+	cout << "Desructor called" << endl;
+	cout <<p_sName<< "   " <<p_iID<< endl;
 }
 
 Fahrzeug::Fahrzeug(string namestr)
@@ -26,6 +26,6 @@ Fahrzeug::Fahrzeug(string namestr)
 	p_iID = p_iMaxID;
 	p_iMaxID++;
 	p_sName = namestr;
-	cout << "Non-Standart Contructor called" << endl;
-	cout << namestr << "   " << p_iID << endl;
+	cout << "Non-Standard Contructor called" << endl;
+	cout <<namestr<< "   " <<p_iID<< endl;
 }

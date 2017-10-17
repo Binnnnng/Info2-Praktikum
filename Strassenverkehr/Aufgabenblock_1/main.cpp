@@ -6,11 +6,16 @@ using namespace std;
 string name;
 
 void vAufgabe_1() {
-	Fahrzeug();
+	Fahrzeug ts;
 	Fahrzeug("test");
-	Fahrzeug* ps1;
-	ps1 = new Fahrzeug();
-	cin >> name;
+	Fahrzeug* tt;
+	Fahrzeug* t2;
+	tt = new Fahrzeug();
+	t2 = new Fahrzeug("test2");
+	delete tt;
+	delete t2;
+	cout << "FINISH" << endl;
+
 }
 
 int main(void) {
