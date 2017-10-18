@@ -14,14 +14,15 @@ public:
 	void virtual vAbfertigung();
 
 private:
-	int p_iID;
 	static int p_iMaxID;
+	void vInitialisierung();
+
+protected:
+	int p_iID;
 	string p_sName;
 	double p_dMaxGeschwindigkeit;
 	double p_dGesamtStrecke;
 	double p_dGesamtZeit;
 	double p_dZeit;
-	void vInitialisierung();
-
 };
 

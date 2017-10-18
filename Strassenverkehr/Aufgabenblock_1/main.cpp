@@ -1,7 +1,10 @@
 #include<iostream>
 #include"Fahrzeug.h"
+#include"Pkw.h"
+#include"Fahrrad.h"
 #include<string>
 #include<iomanip>
+#include<vector>
 
 using namespace std;
 double dGlobaleZeit = 0.0;
@@ -19,6 +22,39 @@ void createTable()
 	cout << resetiosflags(ios::left);
 	
 	
+}
+void vAufgabe_1_deb()
+{
+	Fahrzeug* car1 = new Fahrzeug("PKW1", 5);
+	Fahrzeug* car2 = new Fahrzeug("PKW2", 15);
+	Fahrzeug* car3 = new Fahrzeug("PKW3", 30);
+	Fahrzeug* car4 = new Fahrzeug("PKW4", 50);
+
+	vector<Fahrzeug*> vehiclevec;
+	vehiclevec.push_back(car1);
+	vehiclevec.push_back(car2);
+	vehiclevec.push_back(car3);
+	vehiclevec.push_back(car4);
+
+	//vehiclevec[2] = 0;
+
+	createTable();
+	double tInkrement = 4.0;
+	while (dGlobaleZeit <= 24.0)
+	{
+		
+		for (int veccount = 0;veccount < 4; veccount++)
+		{
+			vehiclevec[veccount]->vAbfertigung();
+		}
+		for (int veccount = 0; veccount < 4; veccount++)
+		{
+			vehiclevec[veccount]->vAusgabe();
+		}
+		dGlobaleZeit += tInkrement;
+	}
+	cout << "" << endl;
+	cout << "FINISH" << endl;
 }
 
 void vAufgabe_1() 

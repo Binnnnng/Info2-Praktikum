@@ -14,7 +14,6 @@ Fahrzeug::Fahrzeug()
 	//cout <<p_sName <<"   "<<p_iID<< endl;
 }
 
-
 Fahrzeug::~Fahrzeug()
 {
 	//cout << "Destructor called" << endl;
