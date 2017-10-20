@@ -57,8 +57,8 @@ void Fahrzeug::vAusgabe()
 	cout << setw(6) << p_iID ;
 	cout << setw(10) << p_sName;
 	cout << setw(5) << ":";
-	cout << setw(14) << p_dMaxGeschwindigkeit ;
-	cout << setw(14) << p_dGesamtStrecke;
+	cout << setw(12) << p_dMaxGeschwindigkeit ;
+	cout << setw(16) << p_dGesamtStrecke;
 }
 
 void Fahrzeug::vAbfertigung()
@@ -66,26 +66,32 @@ void Fahrzeug::vAbfertigung()
 	if (p_dZeit != dGlobaleZeit)
 	{
 		double tDifferenz = dGlobaleZeit - p_dZeit;
-		p_dGesamtStrecke += p_dMaxGeschwindigkeit * tDifferenz;
+		p_dGesamtStrecke += (p_dMaxGeschwindigkeit * tDifferenz);
 		p_dZeit = dGlobaleZeit;
 	}
 
 }
 
-double Fahrzeug::dTanken(double menge)
+double Fahrzeug::dTanken(double menge, double inhalt, double tvolumen)
 {
-	if (menge==-1)
+	if (menge==-1 && inhalt>0) // Volltanken
 	{
-		
-		return 0;
+		double tanken = menge + inhalt;
+		if (tanken<=tvolumen)
+		{
+			return tanken;
+		}
+		else
+		{
+			return 0;
+		}
 	}
-	else if (menge==-2)
+	else if (menge==-2) // Nicht betankbar
 	{
-		return 0;
+		return -2;
 	}
-	else
+	else // menge tanken
 	{
-
-		return 0;
+		return menge;
 	}
 }

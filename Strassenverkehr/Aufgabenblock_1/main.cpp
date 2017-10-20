@@ -8,6 +8,7 @@
 
 using namespace std;
 double dGlobaleZeit = 0.0;
+double tInkrement = 4.0;
 
 void createTable()
 {
@@ -78,7 +79,7 @@ void vAufgabe_1()
 	Fahrzeug* dynamictest2 = new Fahrzeug(name1);
 	*/
 	PKW staticpkw("PKW", 40,7.0);
-	Fahrzeug static2("AUTO3", 30);
+	PKW staticpkw2("AUTO3", 30,8.5);
 	createTable();
 	/*
 	statictest1.vAusgabe();
@@ -90,13 +91,12 @@ void vAufgabe_1()
 	static1.vAusgabe();
 	static2.vAusgabe();
 	*/
-	double tInkrement = 4.0;
-	while (dGlobaleZeit <= 24.0)
+	while (dGlobaleZeit < 24.0)
 	{
 		staticpkw.vPKWAbfertigung();
-		//static2.vAbfertigung();
+		staticpkw2.vPKWAbfertigung();
 		staticpkw.vPKWAusgabe();
-		//static2.vPKWAusgabe();
+		staticpkw2.vPKWAusgabe();
 		dGlobaleZeit += tInkrement;
 	}
 	cout << "" << endl;

@@ -2,7 +2,7 @@
 #include"Fahrzeug.h"
 using namespace std;
 
-class PKW :public Fahrzeug
+class PKW : public Fahrzeug
 {
 public:
 	PKW();
@@ -15,11 +15,10 @@ public:
 
 private:
 	void vPKWInitialisierung();
-
-protected:
 	double p_dgesVerbrauch;
 	double p_dTankinhalt;
 	double p_dVerbrauch;
 	double p_dTankvolumen;
+
 };
 

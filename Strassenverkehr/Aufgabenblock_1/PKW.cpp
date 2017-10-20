@@ -1,10 +1,10 @@
 #include "PKW.h"
 #include <iostream>
-#include<iomanip>
+#include <iomanip>
 
 using namespace std;
 extern double dGlobaleZeit;
-
+extern double tInkrement;
 
 PKW::PKW() :Fahrzeug()
 {
@@ -41,12 +41,11 @@ void PKW::dVerbrauch()
 {
 	double p_verbauch_kmeter = p_dVerbrauch / 100;
 	p_dgesVerbrauch = p_dGesamtStrecke*p_verbauch_kmeter;
-	p_dTankinhalt -= p_dgesVerbrauch;
 }
 
 void PKW::vPKWAusgabe()
 {
-	Fahrzeug::vAusgabe();
+	vAusgabe();
 	cout << setw(14) << p_dgesVerbrauch;
 	cout << setw(14) << p_dTankinhalt << endl;
 	cout << resetiosflags(ios::left);
@@ -54,7 +53,26 @@ void PKW::vPKWAusgabe()
 
 void PKW::vPKWAbfertigung()
 {
-	Fahrzeug::vAbfertigung();
-	dVerbrauch();
+	double tverbrauch = ((tInkrement*p_dMaxGeschwindigkeit)*p_dVerbrauch / 100);
+	if (tverbrauch<=p_dTankinhalt)
+	{
+		vAbfertigung();
+		dVerbrauch();
+		if (p_dGesamtStrecke > 0)
+		{
+			p_dTankinhalt -= tverbrauch;
+		}
+	}
+	else if (p_dTankinhalt<tverbrauch && p_dTankinhalt>0)
+	{
+		p_dTankinhalt = tverbrauch;
+		vAbfertigung();
+		dVerbrauch();	
+	}
+	else if (p_dTankinhalt<=0)
+	{
+		p_dTankinhalt = 0;
+		p_dTankinhalt=dTanken(p_dTankvolumen-p_dTankinhalt,p_dTankinhalt,p_dTankvolumen);
 
+	}
 }

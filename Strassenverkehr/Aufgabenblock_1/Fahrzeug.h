@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class Fahrzeug
+class Fahrzeug 
 {
 public:
 	Fahrzeug();
@@ -12,7 +12,7 @@ public:
 	virtual ~Fahrzeug();
 	void virtual vAusgabe();
 	void virtual vAbfertigung();
-	double virtual dTanken(double menge);
+	double virtual dTanken(double menge, double inhalt, double tvolumen);
 
 private:
 	static int p_iMaxID;
