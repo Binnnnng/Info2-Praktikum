@@ -2,22 +2,24 @@
 #include"Fahrzeug.h"
 using namespace std;
 
-class PKW : public Fahrzeug
+class PKW :public Fahrzeug
 {
 public:
 	PKW();
 	PKW(string namestr, double MaxGeschwindigkeit, double verbrauch);
 	PKW(string namestr, double MaxGeschwindigkeit, double verbrauch, double volumen);
+	void virtual vPKWAusgabe();
+	void virtual dVerbrauch();
+	void virtual vPKWAbfertigung();
 	virtual ~PKW();
-	
 
 private:
-	double p_dVerbrauch;
-	double p_dTankinhalt;
-	double p_dTankvolumen;
-	void dVerbrauch();
-	void dTanken(double menge=-1);
 	void vPKWInitialisierung();
 
+protected:
+	double p_dgesVerbrauch;
+	double p_dTankinhalt;
+	double p_dVerbrauch;
+	double p_dTankvolumen;
 };
 

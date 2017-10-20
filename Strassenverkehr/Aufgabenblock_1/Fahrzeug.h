@@ -12,6 +12,7 @@ public:
 	virtual ~Fahrzeug();
 	void virtual vAusgabe();
 	void virtual vAbfertigung();
+	double virtual dTanken(double menge);
 
 private:
 	static int p_iMaxID;

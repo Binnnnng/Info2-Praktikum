@@ -57,9 +57,8 @@ void Fahrzeug::vAusgabe()
 	cout << setw(6) << p_iID ;
 	cout << setw(10) << p_sName;
 	cout << setw(5) << ":";
-	cout << setw(15) << p_dMaxGeschwindigkeit ;
-	cout << p_dGesamtStrecke << endl;
-	cout << resetiosflags(ios::left);
+	cout << setw(14) << p_dMaxGeschwindigkeit ;
+	cout << setw(14) << p_dGesamtStrecke;
 }
 
 void Fahrzeug::vAbfertigung()
@@ -70,6 +69,23 @@ void Fahrzeug::vAbfertigung()
 		p_dGesamtStrecke += p_dMaxGeschwindigkeit * tDifferenz;
 		p_dZeit = dGlobaleZeit;
 	}
-	
 
+}
+
+double Fahrzeug::dTanken(double menge)
+{
+	if (menge==-1)
+	{
+		
+		return 0;
+	}
+	else if (menge==-2)
+	{
+		return 0;
+	}
+	else
+	{
+
+		return 0;
+	}
 }
