@@ -2,7 +2,7 @@
 #include"Fahrzeug.h"
 #include"PKW.h"
 
-class Fahrrad :public Fahrzeug
+class Fahrrad :public Fahrzeug, public PKW
 {
 public:
 	Fahrrad();

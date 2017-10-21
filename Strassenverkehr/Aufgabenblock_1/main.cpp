@@ -5,10 +5,12 @@
 #include<string>
 #include<iomanip>
 #include<vector>
+#include <algorithm>
+#include <cmath>
 
 using namespace std;
 double dGlobaleZeit = 0.0;
-double tInkrement = 4.0;
+double tInkrement = 1.0;
 
 void createTable()
 {
@@ -30,7 +32,48 @@ void createTable()
 
 void vAufgabe_2()
 {
+	int num = 0,prev = 0;
+	vector<Fahrzeug*> fahrzeugvec;
+	cout << "Wieviele Fahrraeder konstruieren?" << endl;
+	cin >> num;
+	for (int i = 0; i <= num; i++)
+	{
+		Fahrrad* fahrrad = new Fahrrad("Fahrrad"+to_string(i), 20);
+		fahrzeugvec.push_back(fahrrad);
+	}
+	cout << num << "Fahhraeder konstruiert!" << endl;
+	cout << "Wieviele PKW konstruieren?" << endl;
+	cin >> num;
+	for (int i = prev+1; i <=num+prev; i++)
+	{
+		PKW* pkw = new PKW("PKW"+to_string(i), 80, 7.5);
+		fahrzeugvec.push_back(pkw);
+	}
+	createTable();
+	while (dGlobaleZeit <= 24.0)
+	{
+		bool neeq = fabs(dGlobaleZeit - 3.0) <= max(fabs(dGlobaleZeit), fabs(3.0)) * numeric_limits<double>::epsilon() * 3;
+		if (neeq == true)
+		{
+			vector<Fahrzeug*>::iterator fahrzeugIT = fahrzeugvec.begin();
+			while (fahrzeugIT != fahrzeugvec.end()) {
+				(*fahrzeugIT)->dTanken(-1,,); /////////////////////////////////////////////////////////////////////////////////////
+				fahrzeugIT++;
+				
+			}
+		}
+		vector<Fahrzeug*>::iterator fahrzeugIT = fahrzeugvec.begin();
+		while (fahrzeugIT != fahrzeugvec.end())
+		{
+			(*fahrzeugIT)->vAbfertigung();
+			(*fahrzeugIT)->vAusgabe();
+			fahrzeugIT++;
+		}
+		dGlobaleZeit += tInkrement;
+	}
 
+	cout << "" << endl;
+	cout << "FINISH" << endl;
 }
 
 void vAufgabe_1_deb()
@@ -49,10 +92,8 @@ void vAufgabe_1_deb()
 	//vehiclevec[2] = 0;
 
 	createTable();
-	double tInkrement = 4.0;
 	while (dGlobaleZeit <= 24.0)
 	{
-		
 		for (int veccount = 0;veccount < 4; veccount++)
 		{
 			vehiclevec[veccount]->vAbfertigung();

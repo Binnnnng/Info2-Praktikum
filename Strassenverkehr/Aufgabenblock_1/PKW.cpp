@@ -77,6 +77,7 @@ void PKW::vAbfertigung()
 	else if (p_dTankinhalt<=0)
 	{
 		p_dTankinhalt = 0;
+		p_dGeschwindigkeit = 0;
 		p_dTankinhalt=dTanken(p_dTankvolumen-p_dTankinhalt,p_dTankinhalt,p_dTankvolumen);
 
 	}

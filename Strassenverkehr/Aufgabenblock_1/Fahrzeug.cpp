@@ -74,11 +74,11 @@ void Fahrzeug::vAbfertigung()
 	}
 }
 
-double Fahrzeug::dTanken(double menge, double inhalt, double tvolumen)
+double Fahrzeug::dTanken(double menge, double inhalt, double tvolumen)  /////////////////////////////////////////////////////////////////////////////////////////
 {
 	if (menge==-1 && inhalt>0) // Volltanken
 	{
-		double tanken = menge + inhalt;
+		double tanken = menge + inhalt + 1;
 		if (tanken<=tvolumen)
 		{
 			return tanken;
@@ -107,6 +107,7 @@ void Fahrzeug::dGeschwindigkeit(string klasse)
 	}
 	if (klasse=="pkw")
 	{
+
 		p_dGeschwindigkeit = p_dMaxGeschwindigkeit;
 	}
 	else if (klasse=="fahrrad")

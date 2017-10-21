@@ -15,11 +15,12 @@ public:
 
 private:
 	void vInitialisierung();
-	double p_dgesVerbrauch;
-	double p_dTankinhalt;
-	double p_dVerbrauch;
-	double p_dTankvolumen;
 	string klasse;
 
+protected:
+	double p_dgesVerbrauch;
+	double p_dTankvolumen;
+	double p_dTankinhalt;
+	double p_dVerbrauch;
 };
 

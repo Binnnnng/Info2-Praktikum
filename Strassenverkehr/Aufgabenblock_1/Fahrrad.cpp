@@ -26,18 +26,22 @@ Fahrrad::~Fahrrad()
 void Fahrrad::vAusgabe()
 {
 	Fahrzeug::vAusgabe();
-	cout << setw(14) << "0.00";
-	cout << setw(14) << "0.00";
+	cout << setw(14) << p_dgesVerbrauch;
+	cout << setw(14) << p_dTankinhalt;
 	cout << resetiosflags(ios::left) << endl;
 }
 
 void Fahrrad::vAbfertigung()
 {
-	dGeschwindigkeit(klasse);
+	Fahrzeug::dGeschwindigkeit(klasse);
 	Fahrzeug::vAbfertigung();
 }
 
 void Fahrrad::vInitialisierung()
 {
+	p_dVerbrauch = 0.0;
+	p_dgesVerbrauch = 0.0;
+	p_dTankinhalt = 0.0;
+	p_dTankvolumen = 0.0;
 	klasse = "fahrrad";
 }
