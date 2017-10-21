@@ -12,11 +12,11 @@ public:
 	virtual ~Fahrzeug();
 	void virtual vAusgabe();
 	void virtual vAbfertigung();
+	void virtual dGeschwindigkeit(string klasse);
 	double virtual dTanken(double menge, double inhalt, double tvolumen);
 
 private:
 	static int p_iMaxID;
-	void vInitialisierung();
 
 protected:
 	int p_iID;
@@ -25,5 +25,7 @@ protected:
 	double p_dGesamtStrecke;
 	double p_dGesamtZeit;
 	double p_dZeit;
+	double p_dGeschwindigkeit;
+	void vInitialisierung();
 };
 

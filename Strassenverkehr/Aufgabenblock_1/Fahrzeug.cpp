@@ -6,6 +6,7 @@ using namespace std;
 
 int Fahrzeug::p_iMaxID = 1;
 extern double dGlobaleZeit;
+string klasse;
 
 Fahrzeug::Fahrzeug()
 {
@@ -46,6 +47,7 @@ void Fahrzeug::vInitialisierung()
 	p_dGesamtStrecke = 0;
 	p_dGesamtZeit = 0;
 	p_dMaxGeschwindigkeit = 0;
+	p_dGeschwindigkeit = 0;
 }
 
 void Fahrzeug::vAusgabe()
@@ -58,7 +60,8 @@ void Fahrzeug::vAusgabe()
 	cout << setw(10) << p_sName;
 	cout << setw(5) << ":";
 	cout << setw(12) << p_dMaxGeschwindigkeit ;
-	cout << setw(16) << p_dGesamtStrecke;
+	cout << setw(15) << p_dGesamtStrecke;
+	cout << setw(13) << p_dGeschwindigkeit;
 }
 
 void Fahrzeug::vAbfertigung()
@@ -66,10 +69,9 @@ void Fahrzeug::vAbfertigung()
 	if (p_dZeit != dGlobaleZeit)
 	{
 		double tDifferenz = dGlobaleZeit - p_dZeit;
-		p_dGesamtStrecke += (p_dMaxGeschwindigkeit * tDifferenz);
+		p_dGesamtStrecke += (p_dGeschwindigkeit * tDifferenz);
 		p_dZeit = dGlobaleZeit;
 	}
-
 }
 
 double Fahrzeug::dTanken(double menge, double inhalt, double tvolumen)
@@ -93,5 +95,36 @@ double Fahrzeug::dTanken(double menge, double inhalt, double tvolumen)
 	else // menge tanken
 	{
 		return menge;
+	}
+}
+
+void Fahrzeug::dGeschwindigkeit(string klasse)
+{
+	if (p_dGesamtStrecke == 0 && dGlobaleZeit == 0)
+	{
+		p_dGeschwindigkeit = 0;
+		return;
+	}
+	if (klasse=="pkw")
+	{
+		p_dGeschwindigkeit = p_dMaxGeschwindigkeit;
+	}
+	else if (klasse=="fahrrad")
+	{
+		double step = 0.005;
+		double abzugkmh = (p_dGesamtStrecke*step)*p_dMaxGeschwindigkeit;
+		double neukmh = p_dGeschwindigkeit - abzugkmh;
+		if (neukmh<12 && neukmh != 0)
+		{
+			p_dGeschwindigkeit = 12;
+		}
+		else
+		{
+			p_dGeschwindigkeit = p_dMaxGeschwindigkeit - abzugkmh;  //pro KM 0,5% abzug von MaxKMH
+		}
+	}
+	else
+	{
+		p_dGeschwindigkeit = p_dMaxGeschwindigkeit;
 	}
 }

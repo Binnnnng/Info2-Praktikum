@@ -18,14 +18,21 @@ void createTable()
 	cout << setw(10) << "Name" ;
 	cout << setw(4) << ":" ;
 	cout << setw(10) << "MaxKmh" ;
-	cout << setw(15) << "GesamtStrecke";
+	cout << setw(18) << "GesamtStrecke";
+	cout << setw(10) << "Km/h";
 	cout << setw(15) << "GesVerbrauch";
 	cout << setw(15) << "Tankinhalt" << endl;
-	cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
+	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 	cout << resetiosflags(ios::left);
 	
 	
 }
+
+void vAufgabe_2()
+{
+
+}
+
 void vAufgabe_1_deb()
 {
 	Fahrzeug* car1 = new Fahrzeug("PKW1", 5);
@@ -78,7 +85,7 @@ void vAufgabe_1()
 	Fahrzeug* dynamictest1 = new Fahrzeug();
 	Fahrzeug* dynamictest2 = new Fahrzeug(name1);
 	*/
-	PKW staticpkw("PKW", 40,7.0);
+	Fahrrad staticpkw("Bike", 25);
 	PKW staticpkw2("AUTO3", 30,8.5);
 	createTable();
 	/*
@@ -93,10 +100,10 @@ void vAufgabe_1()
 	*/
 	while (dGlobaleZeit < 24.0)
 	{
-		staticpkw.vPKWAbfertigung();
-		staticpkw2.vPKWAbfertigung();
-		staticpkw.vPKWAusgabe();
-		staticpkw2.vPKWAusgabe();
+		staticpkw.vAbfertigung();
+		staticpkw2.vAbfertigung();
+		staticpkw.vAusgabe();
+		staticpkw2.vAusgabe();
 		dGlobaleZeit += tInkrement;
 	}
 	cout << "" << endl;

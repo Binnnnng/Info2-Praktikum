@@ -8,17 +8,18 @@ public:
 	PKW();
 	PKW(string namestr, double MaxGeschwindigkeit, double verbrauch);
 	PKW(string namestr, double MaxGeschwindigkeit, double verbrauch, double volumen);
-	void virtual vPKWAusgabe();
+	void virtual vAusgabe();
 	void virtual dVerbrauch();
-	void virtual vPKWAbfertigung();
+	void virtual vAbfertigung();
 	virtual ~PKW();
 
 private:
-	void vPKWInitialisierung();
+	void vInitialisierung();
 	double p_dgesVerbrauch;
 	double p_dTankinhalt;
 	double p_dVerbrauch;
 	double p_dTankvolumen;
+	string klasse;
 
 };
 
