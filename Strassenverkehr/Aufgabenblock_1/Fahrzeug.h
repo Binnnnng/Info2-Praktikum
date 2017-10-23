@@ -13,7 +13,7 @@ public:
 	void virtual vAusgabe();
 	void virtual vAbfertigung();
 	void virtual dGeschwindigkeit(string klasse);
-	double virtual dTanken(double menge, double inhalt, double tvolumen);
+	double virtual dTanken(double menge);
 
 private:
 	static int p_iMaxID;

@@ -45,3 +45,9 @@ void Fahrrad::vInitialisierung()
 	p_dTankvolumen = 0.0;
 	klasse = "fahrrad";
 }
+
+double Fahrrad::dTanken(double menge)
+{
+	p_dTankinhalt = Fahrzeug::dTanken(-2);  //<-----------------------------------
+	return 0;
+}

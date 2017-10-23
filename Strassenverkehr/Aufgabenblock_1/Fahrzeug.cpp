@@ -74,23 +74,15 @@ void Fahrzeug::vAbfertigung()
 	}
 }
 
-double Fahrzeug::dTanken(double menge, double inhalt, double tvolumen)  /////////////////////////////////////////////////////////////////////////////////////////
+double Fahrzeug::dTanken(double menge)
 {
-	if (menge==-1 && inhalt>0) // Volltanken
+	if (menge==-1) // Volltanken
 	{
-		double tanken = menge + inhalt + 1;
-		if (tanken<=tvolumen)
-		{
-			return tanken;
-		}
-		else
-		{
-			return 0;
-		}
+		return 55.0;
 	}
-	else if (menge==-2) // Nicht betankbar
+	else if (menge==-2)
 	{
-		return -2;
+		return 0.0;
 	}
 	else // menge tanken
 	{

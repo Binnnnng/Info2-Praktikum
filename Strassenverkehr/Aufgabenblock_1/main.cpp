@@ -5,8 +5,6 @@
 #include<string>
 #include<iomanip>
 #include<vector>
-#include <algorithm>
-#include <cmath>
 
 using namespace std;
 double dGlobaleZeit = 0.0;
@@ -36,12 +34,12 @@ void vAufgabe_2()
 	vector<Fahrzeug*> fahrzeugvec;
 	cout << "Wieviele Fahrraeder konstruieren?" << endl;
 	cin >> num;
-	for (int i = 0; i <= num; i++)
+	for (int i = 1; i <= num; i++)
 	{
 		Fahrrad* fahrrad = new Fahrrad("Fahrrad"+to_string(i), 20);
 		fahrzeugvec.push_back(fahrrad);
 	}
-	cout << num << "Fahhraeder konstruiert!" << endl;
+	cout << num <<" "<< "Fahrrad/Fahhraeder konstruiert!" << endl;
 	cout << "Wieviele PKW konstruieren?" << endl;
 	cin >> num;
 	for (int i = prev+1; i <=num+prev; i++)
@@ -49,18 +47,21 @@ void vAufgabe_2()
 		PKW* pkw = new PKW("PKW"+to_string(i), 80, 7.5);
 		fahrzeugvec.push_back(pkw);
 	}
+	cout << num << " " << "PKW/PKW's konstruiert!" << endl;
 	createTable();
 	while (dGlobaleZeit <= 24.0)
 	{
-		bool neeq = fabs(dGlobaleZeit - 3.0) <= max(fabs(dGlobaleZeit), fabs(3.0)) * numeric_limits<double>::epsilon() * 3;
-		if (neeq == true)
+		int betankt = 0;
+		double x = dGlobaleZeit / 3;
+		double y = x - (int)x;
+		if (y==0 && dGlobaleZeit != 0)
 		{
 			vector<Fahrzeug*>::iterator fahrzeugIT = fahrzeugvec.begin();
 			while (fahrzeugIT != fahrzeugvec.end()) {
-				(*fahrzeugIT)->dTanken(-1,,); /////////////////////////////////////////////////////////////////////////////////////
-				fahrzeugIT++;
-				
+				(*fahrzeugIT)->dTanken(-1);
+				fahrzeugIT++;			
 			}
+			betankt = 1;   // <------------------------------------------- Wenn betankt wird fahren autos weiter // vielleicht muss vector irgendwie splitten??? Autos müssen beim tanken einmal skippen aber Fahhäder weiterfahren
 		}
 		vector<Fahrzeug*>::iterator fahrzeugIT = fahrzeugvec.begin();
 		while (fahrzeugIT != fahrzeugvec.end())
@@ -154,7 +155,7 @@ void vAufgabe_1()
 
 int main(void) 
 {
-	vAufgabe_1();
+	vAufgabe_2();
 	return 0;
 }
 

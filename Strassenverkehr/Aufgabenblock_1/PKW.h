@@ -1,5 +1,6 @@
 #pragma once
 #include"Fahrzeug.h"
+
 using namespace std;
 
 class PKW : public Fahrzeug
@@ -11,6 +12,7 @@ public:
 	void virtual vAusgabe();
 	void virtual dVerbrauch();
 	void virtual vAbfertigung();
+	double dTanken(double menge);
 	virtual ~PKW();
 
 private:
@@ -19,8 +21,8 @@ private:
 
 protected:
 	double p_dgesVerbrauch;
+	double p_dVerbrauch;
 	double p_dTankvolumen;
 	double p_dTankinhalt;
-	double p_dVerbrauch;
 };
 
