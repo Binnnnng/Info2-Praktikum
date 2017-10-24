@@ -121,3 +121,8 @@ void Fahrzeug::dGeschwindigkeit(string klasse)
 		p_dGeschwindigkeit = p_dMaxGeschwindigkeit;
 	}
 }
+
+void Fahrzeug::ostreamAusgabe(ostream &out) const
+{
+
+}

@@ -51,17 +51,15 @@ void vAufgabe_2()
 	createTable();
 	while (dGlobaleZeit <= 24.0)
 	{
-		int betankt = 0;
 		double x = dGlobaleZeit / 3;
 		double y = x - (int)x;
-		if (y==0 && dGlobaleZeit != 0)
+		if (y == 0 && dGlobaleZeit != 0)
 		{
 			vector<Fahrzeug*>::iterator fahrzeugIT = fahrzeugvec.begin();
 			while (fahrzeugIT != fahrzeugvec.end()) {
 				(*fahrzeugIT)->dTanken(-1);
-				fahrzeugIT++;			
+				fahrzeugIT++;
 			}
-			betankt = 1;   // <------------------------------------------- Wenn betankt wird fahren autos weiter // vielleicht muss vector irgendwie splitten??? Autos müssen beim tanken einmal skippen aber Fahhäder weiterfahren
 		}
 		vector<Fahrzeug*>::iterator fahrzeugIT = fahrzeugvec.begin();
 		while (fahrzeugIT != fahrzeugvec.end())
@@ -90,7 +88,7 @@ void vAufgabe_1_deb()
 	vehiclevec.push_back(car3);
 	vehiclevec.push_back(car4);
 
-	//vehiclevec[2] = 0;
+	vehiclevec[2] = 0;
 
 	createTable();
 	while (dGlobaleZeit <= 24.0)

@@ -10,6 +10,7 @@ public:
 	Fahrzeug(string namestr);
 	Fahrzeug(string namestr, double MaxGeschwindigkeit);
 	virtual ~Fahrzeug();
+	void ostreamAusgabe(ostream &out) const;
 	void virtual vAusgabe();
 	void virtual vAbfertigung();
 	void virtual dGeschwindigkeit(string klasse);

@@ -51,3 +51,8 @@ double Fahrrad::dTanken(double menge)
 	p_dTankinhalt = Fahrzeug::dTanken(-2);  //<-----------------------------------
 	return 0;
 }
+
+void Fahrrad::ostreamAusgabe(ostream &out) const
+{
+
+}

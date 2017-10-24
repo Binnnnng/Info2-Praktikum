@@ -11,6 +11,7 @@ public:
 	virtual ~Fahrrad();
 	void virtual vAusgabe();
 	double dTanken(double menge);
+	void ostreamAusgabe(ostream &out) const;
 	void virtual vAbfertigung();
 
 private:

@@ -12,6 +12,7 @@ public:
 	void virtual vAusgabe();
 	void virtual dVerbrauch();
 	void virtual vAbfertigung();
+	void ostreamAusgabe(ostream &out) const;
 	double dTanken(double menge);
 	virtual ~PKW();
 

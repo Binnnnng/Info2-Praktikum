@@ -88,3 +88,8 @@ double PKW::dTanken(double menge)
 	p_dTankinhalt = Fahrzeug::dTanken(menge);
 	return 0;
 }
+
+void PKW::ostreamAusgabe(ostream &out) const
+{
+
+}
