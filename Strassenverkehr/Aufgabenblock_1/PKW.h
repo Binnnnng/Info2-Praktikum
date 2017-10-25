@@ -7,12 +7,13 @@ class PKW : public Fahrzeug
 {
 public:
 	PKW();
+	PKW(const PKW& pkw);
 	PKW(string namestr, double MaxGeschwindigkeit, double verbrauch);
 	PKW(string namestr, double MaxGeschwindigkeit, double verbrauch, double volumen);
 	void virtual vAusgabe();
 	void virtual dVerbrauch();
 	void virtual vAbfertigung();
-	void ostreamAusgabe(ostream &out) const;
+	void virtual vostreamAusgabe(ostream &out);
 	double dTanken(double menge);
 	virtual ~PKW();
 

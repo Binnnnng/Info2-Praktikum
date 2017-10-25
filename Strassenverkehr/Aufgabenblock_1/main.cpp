@@ -28,9 +28,33 @@ void createTable()
 	
 }
 
+void vAufgabe_3()
+{
+	dGlobaleZeit = 1.0;
+	createTable();
+	PKW* pkw = new PKW("PKW",80,8.0);
+	pkw->vAbfertigung();
+	PKW* cpypkw = new PKW(*pkw);
+	cout << *pkw << *cpypkw << endl << endl;
+
+	Fahrrad* bike = new Fahrrad("Bike",20);
+	bike->vAbfertigung();
+	Fahrrad* cpybike = new Fahrrad(*bike);
+	cout << *bike << *cpybike << endl << endl;
+
+	PKW* pkw2 = new PKW("X",0,0);
+	*pkw2 = *pkw;
+	cout << *pkw << *pkw2 << endl << endl;
+
+	cout << "(0 ==> 'cpybike Strecke < bike Strecke'" << endl;
+	cout << (*bike < *cpybike) << endl << endl;
+
+	cout << "FINISH" << endl;
+}
+
 void vAufgabe_2()
 {
-	int num = 0,prev = 0;
+	int num = 0,prev=0;
 	vector<Fahrzeug*> fahrzeugvec;
 	cout << "Wieviele Fahrraeder konstruieren?" << endl;
 	cin >> num;
@@ -153,7 +177,7 @@ void vAufgabe_1()
 
 int main(void) 
 {
-	vAufgabe_2();
+	vAufgabe_3();
 	return 0;
 }
 

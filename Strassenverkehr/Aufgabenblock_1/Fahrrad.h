@@ -6,12 +6,13 @@ class Fahrrad :public Fahrzeug
 {
 public:
 	Fahrrad();
+	Fahrrad(const Fahrrad& fahrrad);
 	Fahrrad(string namestr);
 	Fahrrad(string namestr, double MaxGeschwindigkeit);
 	virtual ~Fahrrad();
 	void virtual vAusgabe();
 	double dTanken(double menge);
-	void ostreamAusgabe(ostream &out) const;
+	void virtual vostreamAusgabe(ostream &out);
 	void virtual vAbfertigung();
 
 private:

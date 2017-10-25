@@ -21,6 +21,13 @@ Fahrzeug::~Fahrzeug()
 	//cout <<p_sName<< "   " <<p_iID<< endl;
 }
 
+Fahrzeug::Fahrzeug(const Fahrzeug& fahrzeug)
+{
+	vInitialisierung();
+	p_sName = fahrzeug.p_sName;
+	p_dMaxGeschwindigkeit = fahrzeug.p_dMaxGeschwindigkeit;
+}
+
 Fahrzeug::Fahrzeug(string namestr)
 {
 	vInitialisierung();
@@ -60,6 +67,20 @@ void Fahrzeug::vAusgabe()
 	cout << setw(10) << p_sName;
 	cout << setw(5) << ":";
 	cout << setw(12) << p_dMaxGeschwindigkeit ;
+	cout << setw(15) << p_dGesamtStrecke;
+	cout << setw(13) << p_dGeschwindigkeit;
+}
+
+void Fahrzeug::vostreamAusgabe(ostream &out)
+{
+	cout.precision(2);
+	cout << fixed;
+	cout << resetiosflags(ios::right);
+	cout << setiosflags(ios::left);
+	cout << setw(6) << p_iID;
+	cout << setw(10) << p_sName;
+	cout << setw(5) << ":";
+	cout << setw(12) << p_dMaxGeschwindigkeit;
 	cout << setw(15) << p_dGesamtStrecke;
 	cout << setw(13) << p_dGeschwindigkeit;
 }
@@ -122,7 +143,30 @@ void Fahrzeug::dGeschwindigkeit(string klasse)
 	}
 }
 
-void Fahrzeug::ostreamAusgabe(ostream &out) const
+ostream& operator<<(ostream& out, Fahrzeug& fahrzeug)
 {
+	fahrzeug.vostreamAusgabe(out);
+	return out;
+}
 
+bool Fahrzeug::operator<(const Fahrzeug& comp)
+{
+	if (p_dGesamtStrecke<comp.p_dGesamtStrecke)
+	{
+		return true;
+	}
+	return false;
+}
+
+Fahrzeug& Fahrzeug::operator=(const Fahrzeug& cpyfahrzeug)
+{
+	if (this != &cpyfahrzeug)
+	{
+		p_dGesamtZeit = cpyfahrzeug.p_dGesamtZeit;
+		p_dGesamtStrecke = cpyfahrzeug.p_dGesamtStrecke;
+		p_dMaxGeschwindigkeit = cpyfahrzeug.p_dMaxGeschwindigkeit;
+		p_dZeit = cpyfahrzeug.p_dZeit;
+		p_sName = cpyfahrzeug.p_sName;
+	}
+	return *this;
 }

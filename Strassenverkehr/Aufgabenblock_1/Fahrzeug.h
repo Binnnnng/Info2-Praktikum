@@ -9,12 +9,15 @@ public:
 	Fahrzeug();
 	Fahrzeug(string namestr);
 	Fahrzeug(string namestr, double MaxGeschwindigkeit);
+	Fahrzeug(const Fahrzeug& fahrzeug);
 	virtual ~Fahrzeug();
-	void ostreamAusgabe(ostream &out) const;
+	void virtual vostreamAusgabe(ostream &out);
 	void virtual vAusgabe();
 	void virtual vAbfertigung();
 	void virtual dGeschwindigkeit(string klasse);
 	double virtual dTanken(double menge);
+	bool operator<(const Fahrzeug& comp);
+	Fahrzeug& operator=(const Fahrzeug& cpyfahrzeug);
 
 private:
 	static int p_iMaxID;
@@ -30,3 +33,4 @@ protected:
 	void vInitialisierung();
 };
 
+ostream& operator <<(ostream& out, Fahrzeug&x);

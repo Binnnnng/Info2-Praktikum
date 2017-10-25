@@ -7,7 +7,7 @@ extern double dGlobaleZeit;
 extern double tInkrement;
 extern string klasse;
 
-PKW::PKW() :Fahrzeug()
+PKW::PKW()
 {
 	vInitialisierung();
 }
@@ -17,13 +17,9 @@ PKW::~PKW()
 {
 }
 
-void PKW::vInitialisierung()
+PKW::PKW(const PKW& pkw) :Fahrzeug(pkw.p_sName,pkw.p_dMaxGeschwindigkeit)
 {
-	p_dVerbrauch=0.0;
-	p_dgesVerbrauch = 0.0;
-	p_dTankinhalt=27.5;
-	p_dTankvolumen=55.0;
-	klasse = "pkw";
+	vInitialisierung();
 }
 
 PKW::PKW(string namestr, double MaxGeschwindigkeit, double verbrauch) :Fahrzeug(namestr, MaxGeschwindigkeit)
@@ -39,6 +35,15 @@ PKW::PKW(string namestr, double MaxGeschwindigkeit, double verbrauch, double vol
 	p_dTankvolumen = volumen;
 }
 
+void PKW::vInitialisierung()
+{
+	p_dVerbrauch = 0.0;
+	p_dgesVerbrauch = 0.0;
+	p_dTankvolumen = 55.0;
+	p_dTankinhalt = p_dTankvolumen/2.0;
+	klasse = "pkw";
+}
+
 void PKW::dVerbrauch()
 {
 	double p_verbauch_kmeter = p_dVerbrauch / 100;
@@ -52,6 +57,16 @@ void PKW::vAusgabe()
 	cout << setw(14) << p_dTankinhalt;
 	cout << resetiosflags(ios::left) << endl;
 }
+
+void PKW::vostreamAusgabe(ostream &out)
+{
+	Fahrzeug::vostreamAusgabe(out);
+	cout << setw(14) << p_dgesVerbrauch;
+	cout << setw(14) << p_dTankinhalt;
+	cout << resetiosflags(ios::left) << endl;
+}
+
+
 
 void PKW::vAbfertigung()
 {
@@ -87,9 +102,4 @@ double PKW::dTanken(double menge)
 {
 	p_dTankinhalt = Fahrzeug::dTanken(menge);
 	return 0;
-}
-
-void PKW::ostreamAusgabe(ostream &out) const
-{
-
 }
