@@ -33,4 +33,4 @@ protected:
 	void vInitialisierung();
 };
 
-ostream& operator <<(ostream& out, Fahrzeug&x);
+ostream& operator <<(ostream& out, Fahrzeug&fahrzeug);

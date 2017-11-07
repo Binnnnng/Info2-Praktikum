@@ -5,7 +5,7 @@
 using namespace std;
 extern double dGlobaleZeit;
 extern double tInkrement;
-extern string klasse;
+extern string klasse; // nicht in der Klasse und nicht extern
 
 PKW::PKW()
 {
@@ -93,7 +93,7 @@ void PKW::vAbfertigung()
 	{
 		p_dTankinhalt = 0;
 		p_dGeschwindigkeit = 0;
-		p_dTankinhalt=Fahrzeug::dTanken(p_dTankvolumen);
+		p_dTankinhalt=Fahrzeug::dTanken(p_dTankvolumen); // nicht nachtanken!!!
 
 	}
 }

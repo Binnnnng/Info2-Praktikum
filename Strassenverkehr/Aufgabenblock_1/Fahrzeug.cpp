@@ -97,7 +97,7 @@ void Fahrzeug::vAbfertigung()
 
 double Fahrzeug::dTanken(double menge)
 {
-	if (menge==-1) // Volltanken
+	if (menge==-1) // Volltanken   double nicht "== operator" benutzen -- was passiert bei neagtiven werten
 	{
 		return 55.0;
 	}
@@ -111,7 +111,7 @@ double Fahrzeug::dTanken(double menge)
 	}
 }
 
-void Fahrzeug::dGeschwindigkeit(string klasse)
+void Fahrzeug::dGeschwindigkeit(string klasse) // Geschwindigkeit in den einzelnen Klassen berechnen
 {
 	if (p_dGesamtStrecke == 0 && dGlobaleZeit == 0)
 	{
