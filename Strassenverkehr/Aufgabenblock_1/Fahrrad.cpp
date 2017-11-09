@@ -2,7 +2,7 @@
 #include <iostream>
 #include<iomanip>
 
-extern string klasse;
+extern double dGlobaleZeit;
 
 Fahrrad::Fahrrad() :Fahrzeug()
 {
@@ -50,8 +50,11 @@ void Fahrrad::vostreamAusgabe(ostream &out)
 
 void Fahrrad::vAbfertigung()
 {
-	Fahrzeug::dGeschwindigkeit(klasse);
-	Fahrzeug::vAbfertigung();
+	if (dGlobaleZeit != 0)  
+	{
+		dGeschwindigkeit();
+		Fahrzeug::vAbfertigung();
+	}
 }
 
 void Fahrrad::vInitialisierung()
@@ -60,11 +63,20 @@ void Fahrrad::vInitialisierung()
 	p_dgesVerbrauch = 0.0;
 	p_dTankinhalt = 0.0;
 	p_dTankvolumen = 0.0;
-	klasse = "fahrrad";
 }
 
-double Fahrrad::dTanken(double menge)
+void Fahrrad::dGeschwindigkeit()
 {
-	p_dTankinhalt = Fahrzeug::dTanken(-2);
-	return 0;
+	double step = 0.005;
+	double abzugkmh = (p_dGesamtStrecke*step)*p_dMaxGeschwindigkeit;
+	double neukmh = p_dGeschwindigkeit - abzugkmh;
+
+	if (neukmh<12 && neukmh != 0)
+	{
+		p_dGeschwindigkeit = 12.0;
+	}
+	else
+	{
+		p_dGeschwindigkeit = p_dMaxGeschwindigkeit - abzugkmh;  //pro KM 0,5% abzug von MaxKMH
+	}
 }

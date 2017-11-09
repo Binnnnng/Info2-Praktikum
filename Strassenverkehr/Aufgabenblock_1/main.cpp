@@ -30,19 +30,24 @@ void vAufgabe_3()
 {
 	dGlobaleZeit = 1.0;
 	cout << dGlobaleZeit << endl;
-	createTable();
 	PKW* pkw = new PKW("PKW",80,8.0);
 	pkw->vAbfertigung();
 	PKW* cpypkw = new PKW(*pkw);
+	cout << dGlobaleZeit << endl;
+	createTable();
 	cout << *pkw << *cpypkw << endl << endl;
 
 	Fahrrad* bike = new Fahrrad("Bike",20);
 	bike->vAbfertigung();
 	Fahrrad* cpybike = new Fahrrad(*bike);
+	cout << dGlobaleZeit << endl;
+	createTable();
 	cout << *bike << *cpybike << endl << endl;
 
 	PKW* pkw2 = new PKW("X",0,0);
 	*pkw2 = *pkw;
+	cout << dGlobaleZeit << endl;
+	createTable();
 	cout << *pkw << *pkw2 << endl << endl;
 
 	cout << "Return 0 ==> 'cpybike Strecke < bike Strecke'" << endl;
@@ -172,8 +177,8 @@ void vAufgabe_1()
 	while (dGlobaleZeit < 24.0)
 	{
 		staticbike.vAbfertigung();
-		staticpkw.vAbfertigung();
 		staticbike.vAusgabe();
+		staticpkw.vAbfertigung();
 		staticpkw.vAusgabe();
 		dGlobaleZeit += tInkrement;
 	}
@@ -184,7 +189,7 @@ void vAufgabe_1()
 
 int main(void) 
 {
-	vAufgabe_2();
+	vAufgabe_3();
 	return 0;
 }
 

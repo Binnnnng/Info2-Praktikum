@@ -5,7 +5,7 @@
 using namespace std;
 extern double dGlobaleZeit;
 extern double tInkrement;
-extern string klasse; // nicht in der Klasse und nicht extern
+
 
 PKW::PKW()
 {
@@ -41,7 +41,6 @@ void PKW::vInitialisierung()
 	p_dgesVerbrauch = 0.0;
 	p_dTankvolumen = 55.0;
 	p_dTankinhalt = p_dTankvolumen/2.0;
-	klasse = "pkw";
 }
 
 void PKW::dVerbrauch()
@@ -70,31 +69,31 @@ void PKW::vostreamAusgabe(ostream &out)
 
 void PKW::vAbfertigung()
 {
-	double tverbrauch = ((tInkrement*p_dMaxGeschwindigkeit)*p_dVerbrauch / 100);
-	if (tverbrauch<=p_dTankinhalt)
+	if (dGlobaleZeit != 0)
 	{
-		dGeschwindigkeit(klasse);
-		Fahrzeug::vAbfertigung();
-		dVerbrauch();
-		if (p_dGesamtStrecke > 0)
+		p_dGeschwindigkeit = p_dMaxGeschwindigkeit;
+		double tverbrauch = ((tInkrement*p_dMaxGeschwindigkeit)*p_dVerbrauch / 100);
+		if (tverbrauch <= p_dTankinhalt)
 		{
-			p_dTankinhalt -= tverbrauch;
+			Fahrzeug::vAbfertigung();
+			dVerbrauch();
+			if (p_dGesamtStrecke > 0)
+			{
+				p_dTankinhalt -= tverbrauch;
+			}
 		}
-	}
-	else if (p_dTankinhalt<tverbrauch && p_dTankinhalt>0)
-	{
-		p_dTankinhalt = 0;
-		p_dTankinhalt = tverbrauch;
-		dGeschwindigkeit(klasse);
-		Fahrzeug::vAbfertigung();
-		dVerbrauch();	
-	}
-	else if (p_dTankinhalt<=0)
-	{
-		p_dTankinhalt = 0;
-		p_dGeschwindigkeit = 0;
-		p_dTankinhalt=Fahrzeug::dTanken(p_dTankvolumen); // nicht nachtanken!!!
-
+		else if (p_dTankinhalt<tverbrauch && p_dTankinhalt>0)
+		{
+			p_dTankinhalt = 0;
+			p_dTankinhalt = tverbrauch;
+			Fahrzeug::vAbfertigung();
+			dVerbrauch();
+		}
+		else if (p_dTankinhalt <= 0)
+		{
+			p_dTankinhalt = 0;
+			p_dGeschwindigkeit = 0;
+		}
 	}
 }
 

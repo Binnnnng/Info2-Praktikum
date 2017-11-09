@@ -14,7 +14,6 @@ public:
 	void virtual vostreamAusgabe(ostream &out);
 	void virtual vAusgabe();
 	void virtual vAbfertigung();
-	void virtual dGeschwindigkeit(string klasse);
 	double virtual dTanken(double menge);
 	bool operator<(const Fahrzeug& comp);
 	Fahrzeug& operator=(const Fahrzeug& cpyfahrzeug);
