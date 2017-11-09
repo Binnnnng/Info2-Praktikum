@@ -1,5 +1,8 @@
 #pragma once
-class AktivesVO
+#include"Fahrzeug.h"
+#include"Weg.h"
+
+class AktivesVO :public Fahrzeug, Weg
 {
 public:
 	AktivesVO();
