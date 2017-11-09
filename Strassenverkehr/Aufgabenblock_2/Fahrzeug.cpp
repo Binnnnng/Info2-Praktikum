@@ -1,3 +1,4 @@
+#include"stdafx.h"
 #include "Fahrzeug.h"
 #include<iostream>
 #include<iomanip>
@@ -6,7 +7,6 @@ using namespace std;
 
 int Fahrzeug::p_iMaxID = 1;
 extern double dGlobaleZeit;
-string klasse;
 
 Fahrzeug::Fahrzeug()
 {
@@ -95,51 +95,15 @@ void Fahrzeug::vAbfertigung()
 	}
 }
 
-double Fahrzeug::dTanken(double menge)
+double Fahrzeug::dTanken(double menge) 
 {
-	if (menge==-1) // Volltanken
+	if (menge<0)
 	{
 		return 55.0;
 	}
-	else if (menge==-2)
-	{
-		return 0.0;
-	}
-	else // menge tanken
-	{
-		return menge;
-	}
-}
-
-void Fahrzeug::dGeschwindigkeit(string klasse)
-{
-	if (p_dGesamtStrecke == 0 && dGlobaleZeit == 0)
-	{
-		p_dGeschwindigkeit = 0;
-		return;
-	}
-	if (klasse=="pkw")
-	{
-
-		p_dGeschwindigkeit = p_dMaxGeschwindigkeit;
-	}
-	else if (klasse=="fahrrad")
-	{
-		double step = 0.005;
-		double abzugkmh = (p_dGesamtStrecke*step)*p_dMaxGeschwindigkeit;
-		double neukmh = p_dGeschwindigkeit - abzugkmh;
-		if (neukmh<12 && neukmh != 0)
-		{
-			p_dGeschwindigkeit = 12;
-		}
-		else
-		{
-			p_dGeschwindigkeit = p_dMaxGeschwindigkeit - abzugkmh;  //pro KM 0,5% abzug von MaxKMH
-		}
-	}
 	else
 	{
-		p_dGeschwindigkeit = p_dMaxGeschwindigkeit;
+		return menge;
 	}
 }
 
@@ -167,6 +131,7 @@ Fahrzeug& Fahrzeug::operator=(const Fahrzeug& cpyfahrzeug)
 		p_dMaxGeschwindigkeit = cpyfahrzeug.p_dMaxGeschwindigkeit;
 		p_dZeit = cpyfahrzeug.p_dZeit;
 		p_sName = cpyfahrzeug.p_sName;
+		p_iID = cpyfahrzeug.p_iID;
 	}
 	return *this;
 }

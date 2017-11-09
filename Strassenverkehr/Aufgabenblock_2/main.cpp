@@ -1,3 +1,4 @@
+#include"stdafx.h"
 #include<iostream>
 #include"Fahrzeug.h"
 #include"Pkw.h"
@@ -8,7 +9,7 @@
 
 using namespace std;
 double dGlobaleZeit = 0.0;
-double tInkrement = 1.0;
+double tInkrement = 0.3;
 
 void createTable()
 {
@@ -24,30 +25,40 @@ void createTable()
 	cout << setw(15) << "Tankinhalt" << endl;
 	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 	cout << resetiosflags(ios::left);
-	
-	
 }
 
 void vAufgabe_3()
 {
 	dGlobaleZeit = 1.0;
-	createTable();
+	cout << dGlobaleZeit << endl;
 	PKW* pkw = new PKW("PKW",80,8.0);
 	pkw->vAbfertigung();
 	PKW* cpypkw = new PKW(*pkw);
+	cout << dGlobaleZeit << endl;
+	createTable();
 	cout << *pkw << *cpypkw << endl << endl;
 
 	Fahrrad* bike = new Fahrrad("Bike",20);
 	bike->vAbfertigung();
 	Fahrrad* cpybike = new Fahrrad(*bike);
+	cout << dGlobaleZeit << endl;
+	createTable();
 	cout << *bike << *cpybike << endl << endl;
 
 	PKW* pkw2 = new PKW("X",0,0);
 	*pkw2 = *pkw;
+	cout << dGlobaleZeit << endl;
+	createTable();
 	cout << *pkw << *pkw2 << endl << endl;
 
-	cout << "(0 ==> 'cpybike Strecke < bike Strecke'" << endl;
+	cout << "Return 0 ==> 'cpybike Strecke < bike Strecke'" << endl;
 	cout << (*bike < *cpybike) << endl << endl;
+
+	delete pkw;
+	delete pkw2;
+	delete cpypkw;
+	delete bike;
+	delete cpybike;
 
 	cout << "FINISH" << endl;
 }
@@ -72,19 +83,20 @@ void vAufgabe_2()
 		fahrzeugvec.push_back(pkw);
 	}
 	cout << num << " " << "PKW/PKW's konstruiert!" << endl;
-	createTable();
-	while (dGlobaleZeit <= 24.0)
+	bool tanken = true;
+	while (dGlobaleZeit <= 5.0)
 	{
-		double x = dGlobaleZeit / 3;
-		double y = x - (int)x;
-		if (y == 0 && dGlobaleZeit != 0)
+		if (dGlobaleZeit > 3.0 && tanken == true)
 		{
 			vector<Fahrzeug*>::iterator fahrzeugIT = fahrzeugvec.begin();
 			while (fahrzeugIT != fahrzeugvec.end()) {
 				(*fahrzeugIT)->dTanken(-1);
 				fahrzeugIT++;
 			}
+			tanken = false;
 		}
+		cout << dGlobaleZeit << endl;
+		createTable();
 		vector<Fahrzeug*>::iterator fahrzeugIT = fahrzeugvec.begin();
 		while (fahrzeugIT != fahrzeugvec.end())
 		{
@@ -92,6 +104,7 @@ void vAufgabe_2()
 			(*fahrzeugIT)->vAusgabe();
 			fahrzeugIT++;
 		}
+		cout << endl;
 		dGlobaleZeit += tInkrement;
 	}
 
@@ -149,8 +162,8 @@ void vAufgabe_1()
 	Fahrzeug* dynamictest1 = new Fahrzeug();
 	Fahrzeug* dynamictest2 = new Fahrzeug(name1);
 	*/
-	Fahrrad staticpkw("Bike", 25);
-	PKW staticpkw2("AUTO3", 30,8.5);
+	Fahrrad staticbike("Bike", 25);
+	PKW staticpkw("Pkw", 30,8.5);
 	createTable();
 	/*
 	statictest1.vAusgabe();
@@ -164,10 +177,10 @@ void vAufgabe_1()
 	*/
 	while (dGlobaleZeit < 24.0)
 	{
+		staticbike.vAbfertigung();
+		staticbike.vAusgabe();
 		staticpkw.vAbfertigung();
-		staticpkw2.vAbfertigung();
 		staticpkw.vAusgabe();
-		staticpkw2.vAusgabe();
 		dGlobaleZeit += tInkrement;
 	}
 	cout << "" << endl;

@@ -15,6 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
     <ClInclude Include="Fahrrad.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -27,6 +33,9 @@
     <ClInclude Include="AktivesVO.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Weg.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
     <ClInclude Include="FzgVerhalten.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -36,11 +45,20 @@
     <ClInclude Include="FzgParken.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Weg.h">
+    <ClInclude Include="LazyAktion.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="LazyListe.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="SimuClient.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
     <ClCompile Include="Fahrrad.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
@@ -56,6 +74,9 @@
     <ClCompile Include="AktivesVO.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Weg.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
     <ClCompile Include="FzgVerhalten.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
@@ -65,8 +86,11 @@
     <ClCompile Include="FzgParken.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Weg.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="SimuClient.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SimuServer.jar" />
   </ItemGroup>
 </Project>

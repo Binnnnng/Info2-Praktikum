@@ -3,6 +3,6 @@ class FzgParken
 {
 public:
 	FzgParken();
-	virtual ~FzgParken();
+	~FzgParken();
 };
 

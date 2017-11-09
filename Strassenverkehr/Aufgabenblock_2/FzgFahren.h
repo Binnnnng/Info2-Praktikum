@@ -3,6 +3,6 @@ class FzgFahren
 {
 public:
 	FzgFahren();
-	virtual ~FzgFahren();
+	~FzgFahren();
 };
 
