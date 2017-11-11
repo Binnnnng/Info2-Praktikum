@@ -6,6 +6,9 @@
 #include<string>
 #include<iomanip>
 #include<vector>
+#include"Weg.h"
+#include"SimuClient.h"
+//#include"LazyListe.h"
 
 using namespace std;
 double dGlobaleZeit = 0.0;

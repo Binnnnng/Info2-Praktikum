@@ -44,9 +44,9 @@ void Fahrrad::vAusgabe()
 void Fahrrad::vostreamAusgabe(ostream &out)
 {
 	Fahrzeug::vostreamAusgabe(out);
-	cout << setw(14) << p_dgesVerbrauch;
-	cout << setw(14) << p_dTankinhalt;
-	cout << resetiosflags(ios::left) << endl;
+	out << setw(14) << p_dgesVerbrauch;
+	out << setw(14) << p_dTankinhalt;
+	out << resetiosflags(ios::left) << endl;
 }
 
 void Fahrrad::vAbfertigung()

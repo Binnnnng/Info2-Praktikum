@@ -1,11 +1,27 @@
 #pragma once
-#include"Fahrzeug.h"
-#include"Weg.h"
+#include<string>
+#include<iomanip>
+#include<iostream>
 
-class AktivesVO :public Fahrzeug, Weg
+using namespace std;
+
+class AktivesVO 
 {
 public:
 	AktivesVO();
+	AktivesVO(string namestr);
 	virtual ~AktivesVO();
+	void virtual vostreamAusgabe(ostream& out);
+	void vInitialization();
+	string returnName();
+
+private:
+	static int p_iMaxID;
+
+protected:
+	string p_sName;
+	int p_iID;
+	double lokaleZeit;
 };
 
+ostream& operator <<(ostream& out, AktivesVO&x);

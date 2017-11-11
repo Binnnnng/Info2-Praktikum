@@ -1,9 +1,10 @@
 #pragma once
-#include<string>
+//#include<string>
+#include"AktivesVO.h"
 
 using namespace std;
 
-class Fahrzeug 
+class Fahrzeug : public AktivesVO
 {
 public:
 	Fahrzeug();
@@ -19,17 +20,17 @@ public:
 	Fahrzeug& operator=(const Fahrzeug& cpyfahrzeug);
 
 private:
-	static int p_iMaxID;
+	//static int p_iMaxID;
+	void vInitialisierung();
 
 protected:
-	int p_iID;
-	string p_sName;
+	//int p_iID;
+	//string p_sName;
 	double p_dMaxGeschwindigkeit;
 	double p_dGesamtStrecke;
 	double p_dGesamtZeit;
 	double p_dZeit;
 	double p_dGeschwindigkeit;
-	void vInitialisierung();
 };
 
-ostream& operator <<(ostream& out, Fahrzeug&fahrzeug);
+//ostream& operator <<(ostream& out, Fahrzeug&fahrzeug);
