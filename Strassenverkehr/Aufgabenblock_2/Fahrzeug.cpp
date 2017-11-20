@@ -2,6 +2,8 @@
 #include "Fahrzeug.h"
 #include<iostream>
 #include<iomanip>
+#include "FzgVerhalten.h"
+#include "FzgFahren.h"
 
 using namespace std;
 
@@ -57,6 +59,7 @@ void Fahrzeug::vInitialisierung()
 	p_dGesamtZeit = 0;
 	p_dMaxGeschwindigkeit = 0;
 	p_dGeschwindigkeit = 0;
+	p_dAbschnittStrecke = 0;
 }
 
 void Fahrzeug::vAusgabe()
@@ -137,4 +140,31 @@ Fahrzeug& Fahrzeug::operator=(const Fahrzeug& cpyfahrzeug)
 		p_iID = cpyfahrzeug.p_iID;
 	}
 	return *this;
+}
+
+void Fahrzeug::vSetVerhalten(FzgVerhalten * pVerhalten)
+{
+	p_pVerhalten = pVerhalten;
+}
+
+void Fahrzeug::vNeueStrecke(Weg * weg)
+{
+	p_pAktuelleStrecke = weg;
+	delete p_pVerhalten;
+	p_pVerhalten = new FzgFahren(weg);
+	p_dAbschnittStrecke = 0;
+}
+
+double Fahrzeug::dGeschwindigkeit()
+{
+	Weg * weg = this->p_pVerhalten->pGetWeg();
+	if (weg->dGetLimit() == -1)
+	{
+		return p_dMaxGeschwindigkeit;
+	}
+	if (weg->dGetLimit() < p_dMaxGeschwindigkeit)
+	{
+		return weg->dGetLimit();
+	}
+	return p_dMaxGeschwindigkeit;
 }

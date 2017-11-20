@@ -35,7 +35,6 @@ void AktivesVO::vostreamAusgabe(ostream & out)
 
 void AktivesVO::vInitialization()
 {
-	p_sName = "";
 	p_iID = p_iMaxID;
 	p_iMaxID++;
 }

@@ -1,8 +1,7 @@
 #include "stdafx.h"
 #include "Weg.h"
 #include"Fahrzeug.h"
-#include<list>
-#include"LazyListe.h"
+#include "FzgParken.h"
 
 using namespace std;
 
@@ -16,6 +15,11 @@ Weg::Weg(string namestr, double length, Begrenzung eLimit) :AktivesVO(namestr), 
 
 Weg::~Weg()
 {
+}
+
+double Weg::dGetLimit()
+{
+	return p_eLimt;
 }
 
 void Weg::vostreamAusgabe(ostream & out)
@@ -39,9 +43,21 @@ void Weg::vostreamAusgabe(ostream & out)
 void Weg::vAbfertigung()
 {
 	list<Fahrzeug*>::iterator iterator = p_pFahrzeug.begin();
-	while (iterator != this->p_pFahrzeug.end()) {
+	while (iterator != p_pFahrzeug.end()) {
 		(*iterator)->vAbfertigung();
 		(*iterator)->vAusgabe();
 		iterator++;
 	}
+}
+
+void Weg::vAnnehmen(Fahrzeug * fahrzeug)
+{
+}
+
+void Weg::vAnnehmen(Fahrzeug * fahrzeug, double dStartZeit)
+{
+}
+
+void Weg::vAbgeben(Fahrzeug * fahrzeug)
+{
 }

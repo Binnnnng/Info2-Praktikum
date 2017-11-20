@@ -30,6 +30,12 @@ void createTable()
 	cout << resetiosflags(ios::left);
 }
 
+void vAufgabe_4()
+{
+	Weg* weg = new Weg("Weg1", 20, Weg::Innerorts);
+	cout << *weg << endl;
+}
+
 void vAufgabe_3()
 {
 	dGlobaleZeit = 1.0;
@@ -193,7 +199,7 @@ void vAufgabe_1()
 
 int main(void) 
 {
-	vAufgabe_3();
+	vAufgabe_4();
 	return 0;
 }
 
