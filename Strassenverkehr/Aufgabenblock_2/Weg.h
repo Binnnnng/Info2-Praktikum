@@ -16,9 +16,9 @@ public:
 	Weg(string namestr, double length, Begrenzung eLimit);
 	void virtual vostreamAusgabe(ostream& out);
 	void virtual vAbfertigung();
-	void vAnnehmen(Fahrzeug* fahrzeug);
-	void vAnnehmen(Fahrzeug * fahrzeug, double dStartZeit);
-	void vAbgeben(Fahrzeug* fahrzeug);
+	void vAnnahme(Fahrzeug* fahrzeug);
+	void vAnnahme(Fahrzeug * fahrzeug, double dStartZeit);
+	void vAbgabe (Fahrzeug* fahrzeug);
 	virtual ~Weg();
 	double dGetLimit();
 

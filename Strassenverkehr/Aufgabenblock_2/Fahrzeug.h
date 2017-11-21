@@ -18,8 +18,8 @@ public:
 	double virtual dTanken(double menge);
 	bool operator<(const Fahrzeug& comp);
 	Fahrzeug& operator=(const Fahrzeug& cpyfahrzeug);
-	//void vSetVerhalten(FzgVerhalten* pVerhalten);
-	//void vNeueStrecke(Weg * weg);
+	void vSetVerhalten(FzgVerhalten* pVerhalten);
+	void vNeueStrecke(Weg * weg);
 	//double virtual dGeschwindigkeit();
 
 private:
@@ -36,7 +36,7 @@ protected:
 	double p_dGeschwindigkeit;
 	double p_dAbschnittStrecke;
 	FzgVerhalten *p_pVerhalten;
-	//Weg *p_pAktuelleStrecke;
+	Weg *p_pAktuelleStrecke;
 };
 
 //ostream& operator <<(ostream& out, Fahrzeug&fahrzeug);

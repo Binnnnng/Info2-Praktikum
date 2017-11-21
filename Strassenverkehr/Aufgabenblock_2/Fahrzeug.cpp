@@ -98,7 +98,6 @@ void Fahrzeug::vAbfertigung()
 	if (p_dZeit != dGlobaleZeit)
 	{
 		double tDifferenz = dGlobaleZeit - p_dZeit;
-		p_dAbschnittStrecke = dStrecke(, tDifferenz); //FEHLER!
 		p_dGesamtStrecke += (p_dGeschwindigkeit * tDifferenz);
 		p_dZeit = dGlobaleZeit;
 	}
@@ -145,7 +144,7 @@ Fahrzeug& Fahrzeug::operator=(const Fahrzeug& cpyfahrzeug)
 	return *this;
 }
 
-/*
+
 void Fahrzeug::vSetVerhalten(FzgVerhalten * pVerhalten)
 {
 	p_pVerhalten = pVerhalten;
@@ -158,7 +157,7 @@ void Fahrzeug::vNeueStrecke(Weg * weg)
 	p_pVerhalten = new FzgFahren(weg);
 	p_dAbschnittStrecke = 0;
 }
-
+/*
 double Fahrzeug::dGeschwindigkeit()
 {
 	Weg * weg = this->p_pVerhalten->pGetWeg();

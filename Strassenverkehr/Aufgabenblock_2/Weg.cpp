@@ -52,14 +52,14 @@ void Weg::vAbfertigung()
 	}
 }
 
-void Weg::vAnnehmen(Fahrzeug * fahrzeug)
+void Weg::vAnnahme(Fahrzeug * fahrzeug)
 {
 }
 
-void Weg::vAnnehmen(Fahrzeug * fahrzeug, double dStartZeit)
+void Weg::vAnnahme(Fahrzeug * fahrzeug, double dStartZeit)
 {
 }
 
-void Weg::vAbgeben(Fahrzeug * fahrzeug)
+void Weg::vAbgabe(Fahrzeug * fahrzeug)
 {
 }
