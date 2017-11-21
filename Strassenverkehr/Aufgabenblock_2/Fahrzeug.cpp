@@ -74,6 +74,7 @@ void Fahrzeug::vAusgabe()
 	cout << setw(12) << p_dMaxGeschwindigkeit ;
 	cout << setw(15) << p_dGesamtStrecke;
 	cout << setw(13) << p_dGeschwindigkeit;
+	cout << setw(13) << p_dAbschnittStrecke;
 }
 
 void Fahrzeug::vostreamAusgabe(ostream &out)
@@ -83,12 +84,13 @@ void Fahrzeug::vostreamAusgabe(ostream &out)
 	out << fixed;
 	out << resetiosflags(ios::right);
 	out << setiosflags(ios::left);
-	//cout << setw(6) << p_iID;
-	//cout << setw(10) << p_sName;
-	//cout << setw(5) << ":";
+	//out << setw(6) << p_iID;
+	//out << setw(10) << p_sName;
+	//out << setw(5) << ":";
 	out << setw(12) << p_dMaxGeschwindigkeit;
 	out << setw(15) << p_dGesamtStrecke;
 	out << setw(13) << p_dGeschwindigkeit;
+	out << setw(13) << p_dAbschnittStrecke;
 }
 
 void Fahrzeug::vAbfertigung()
@@ -96,6 +98,7 @@ void Fahrzeug::vAbfertigung()
 	if (p_dZeit != dGlobaleZeit)
 	{
 		double tDifferenz = dGlobaleZeit - p_dZeit;
+		p_dAbschnittStrecke = dStrecke(, tDifferenz); //FEHLER!
 		p_dGesamtStrecke += (p_dGeschwindigkeit * tDifferenz);
 		p_dZeit = dGlobaleZeit;
 	}
@@ -142,6 +145,7 @@ Fahrzeug& Fahrzeug::operator=(const Fahrzeug& cpyfahrzeug)
 	return *this;
 }
 
+/*
 void Fahrzeug::vSetVerhalten(FzgVerhalten * pVerhalten)
 {
 	p_pVerhalten = pVerhalten;
@@ -168,3 +172,4 @@ double Fahrzeug::dGeschwindigkeit()
 	}
 	return p_dMaxGeschwindigkeit;
 }
+*/

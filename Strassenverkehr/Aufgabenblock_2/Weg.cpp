@@ -30,6 +30,7 @@ void Weg::vostreamAusgabe(ostream & out)
 	out << resetiosflags(ios::right);
 	out << setiosflags(ios::left);
 	out << p_dLength;
+	/*
 	out << " ( ";
 	list<Fahrzeug*>::iterator iterator = p_pFahrzeug.begin();
 	while (iterator != p_pFahrzeug.end())
@@ -38,6 +39,7 @@ void Weg::vostreamAusgabe(ostream & out)
 		iterator++;
 	}
 	out << ")";
+	*/
 }
 
 void Weg::vAbfertigung()

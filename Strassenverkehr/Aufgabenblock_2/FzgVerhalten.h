@@ -10,7 +10,7 @@ public:
 	FzgVerhalten(Weg* weg);
 	~FzgVerhalten();
 	Weg* pGetWeg();
-	double virtual dStrecke(Fahrzeug*, double zeit) = 0;
+	double virtual dStrecke(Fahrzeug* , double zeit);
 protected:
 	Weg* p_pWeg;
 };

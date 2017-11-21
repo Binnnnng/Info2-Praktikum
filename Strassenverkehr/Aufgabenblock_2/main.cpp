@@ -24,6 +24,7 @@ void createTable()
 	cout << setw(10) << "MaxKmh" ;
 	cout << setw(18) << "GesamtStrecke";
 	cout << setw(10) << "Km/h";
+	cout << setw(13) << "Abschnitt";
 	cout << setw(15) << "GesVerbrauch";
 	cout << setw(15) << "Tankinhalt" << endl;
 	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
@@ -199,7 +200,7 @@ void vAufgabe_1()
 
 int main(void) 
 {
-	vAufgabe_4();
+	vAufgabe_2();
 	return 0;
 }
 
