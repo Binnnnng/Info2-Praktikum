@@ -30,7 +30,6 @@ void Weg::vostreamAusgabe(ostream & out)
 	out << resetiosflags(ios::right);
 	out << setiosflags(ios::left);
 	out << p_dLength;
-	/*
 	out << " ( ";
 	list<Fahrzeug*>::iterator iterator = p_pFahrzeug.begin();
 	while (iterator != p_pFahrzeug.end())
@@ -39,7 +38,6 @@ void Weg::vostreamAusgabe(ostream & out)
 		iterator++;
 	}
 	out << ")";
-	*/
 }
 
 void Weg::vAbfertigung()
@@ -54,6 +52,7 @@ void Weg::vAbfertigung()
 
 void Weg::vAnnahme(Fahrzeug * fahrzeug)
 {
+	p_pFahrzeug.push_back(fahrzeug);
 }
 
 void Weg::vAnnahme(Fahrzeug * fahrzeug, double dStartZeit)
