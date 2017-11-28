@@ -18,5 +18,5 @@ FzgFahren::~FzgFahren()
 
 double FzgFahren::dStrecke(Fahrzeug * fahrzeug, double zeit)
 {
-	return 0.0;
+	return 0.0; 
 }

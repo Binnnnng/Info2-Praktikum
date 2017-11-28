@@ -1,6 +1,7 @@
 #pragma once
 //#include<string>
 #include"AktivesVO.h"
+#include "Weg.h"
 
 using namespace std;
 
@@ -20,7 +21,7 @@ public:
 	Fahrzeug& operator=(const Fahrzeug& cpyfahrzeug);
 	void vSetVerhalten(FzgVerhalten* pVerhalten);
 	void vNeueStrecke(Weg * weg);
-	//double virtual dGeschwindigkeit();
+	double virtual dGeschwindigkeit();
 
 private:
 	//static int p_iMaxID;

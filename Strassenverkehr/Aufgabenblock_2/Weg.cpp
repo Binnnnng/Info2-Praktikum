@@ -9,7 +9,7 @@ Weg::Weg()
 {
 }
 
-Weg::Weg(string namestr, double length, Begrenzung eLimit) :AktivesVO(namestr), p_dLength(length), p_eLimt(eLimit)
+Weg::Weg(string namestr, double length, Begrenzung eLimit) :AktivesVO(namestr), p_dLength(length), p_eLimit(eLimit)
 {
 }
 
@@ -19,7 +19,7 @@ Weg::~Weg()
 
 double Weg::dGetLimit()
 {
-	return p_eLimt;
+	return p_eLimit;
 }
 
 void Weg::vostreamAusgabe(ostream & out)
@@ -57,8 +57,10 @@ void Weg::vAnnahme(Fahrzeug * fahrzeug)
 
 void Weg::vAnnahme(Fahrzeug * fahrzeug, double dStartZeit)
 {
+	p_pFahrzeug.push_back(fahrzeug);
 }
 
 void Weg::vAbgabe(Fahrzeug * fahrzeug)
 {
+	p_pFahrzeug.remove(fahrzeug);
 }

@@ -11,14 +11,8 @@ FzgVerhalten::FzgVerhalten(Weg * weg) :p_pWeg(weg)
 {
 }
 
-
 FzgVerhalten::~FzgVerhalten()
 {
-}
-
-double FzgVerhalten::dStrecke(Fahrzeug * , double zeit)
-{
-	return  Fahrzeug::p_dGeschwindigkeit * zeit;  // FEHLER!!
 }
 
 Weg * FzgVerhalten::pGetWeg()

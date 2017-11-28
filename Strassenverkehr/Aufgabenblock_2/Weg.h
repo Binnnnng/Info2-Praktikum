@@ -24,7 +24,7 @@ public:
 
 private:
 	double p_dLength;
-	double p_eLimt;
+	double p_eLimit;
 	list<Fahrzeug*> p_pFahrzeug;
 };
 

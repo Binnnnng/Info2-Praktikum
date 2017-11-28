@@ -4,6 +4,7 @@
 #include<iomanip>
 #include "FzgVerhalten.h"
 #include "FzgFahren.h"
+#include "Weg.h"
 
 using namespace std;
 
@@ -98,6 +99,7 @@ void Fahrzeug::vAbfertigung()
 	if (p_dZeit != dGlobaleZeit)
 	{
 		double tDifferenz = dGlobaleZeit - p_dZeit;
+		p_dAbschnittStrecke += p_pVerhalten->dStrecke(this, tDifferenz);
 		p_dGesamtStrecke += (p_dGeschwindigkeit * tDifferenz);
 		p_dZeit = dGlobaleZeit;
 	}
@@ -139,7 +141,7 @@ Fahrzeug& Fahrzeug::operator=(const Fahrzeug& cpyfahrzeug)
 		p_dMaxGeschwindigkeit = cpyfahrzeug.p_dMaxGeschwindigkeit;
 		p_dZeit = cpyfahrzeug.p_dZeit;
 		p_sName = cpyfahrzeug.p_sName;
-		p_iID = cpyfahrzeug.p_iID;
+		//p_iID = cpyfahrzeug.p_iID;
 	}
 	return *this;
 }
@@ -157,10 +159,10 @@ void Fahrzeug::vNeueStrecke(Weg * weg)
 	p_pVerhalten = new FzgFahren(weg);
 	p_dAbschnittStrecke = 0;
 }
-/*
+
 double Fahrzeug::dGeschwindigkeit()
 {
-	Weg * weg = this->p_pVerhalten->pGetWeg();
+	Weg * weg = p_pVerhalten->pGetWeg();
 	if (weg->dGetLimit() == -1)
 	{
 		return p_dMaxGeschwindigkeit;
@@ -171,4 +173,3 @@ double Fahrzeug::dGeschwindigkeit()
 	}
 	return p_dMaxGeschwindigkeit;
 }
-*/
