@@ -2,7 +2,7 @@
 #include"AktivesVO.h"
 
 
-
+using namespace std;
 
 extern double dGlobaleZeit;
 int AktivesVO::p_iMaxID = 1;
@@ -48,4 +48,9 @@ ostream& operator <<(ostream& out, AktivesVO& fahrzeug)
 {
 	fahrzeug.vostreamAusgabe(out);
 	return out;
+}
+
+bool AktivesVO::operator==(const AktivesVO& aVO)
+{
+	return p_iID == aVO.p_iID;
 }

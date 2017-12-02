@@ -1,7 +1,9 @@
 #pragma once
-//#include<string>
+#include<string>
 #include"AktivesVO.h"
 #include "Weg.h"
+#include "FzgVerhalten.h"
+#include "FzgFahren.h"
 
 using namespace std;
 
@@ -22,6 +24,8 @@ public:
 	void vSetVerhalten(FzgVerhalten* pVerhalten);
 	void vNeueStrecke(Weg * weg);
 	double virtual dGeschwindigkeit();
+	void virtual vZeichnen(Weg* pWeg);
+	double dGetAbschnittStrecke();
 
 private:
 	//static int p_iMaxID;
@@ -38,6 +42,7 @@ protected:
 	double p_dAbschnittStrecke;
 	FzgVerhalten *p_pVerhalten;
 	Weg *p_pAktuelleStrecke;
+	double dGetPos();
 };
 
 //ostream& operator <<(ostream& out, Fahrzeug&fahrzeug);

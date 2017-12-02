@@ -15,6 +15,7 @@ public:
 	void virtual vostreamAusgabe(ostream& out);
 	void vInitialization();
 	string returnName();
+	bool operator==(const AktivesVO& aVO);
 
 private:
 	static int p_iMaxID;

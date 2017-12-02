@@ -3,6 +3,8 @@
 #include "Weg.h"
 #include "Fahrzeug.h"
 
+using namespace std;
+
 FzgVerhalten::FzgVerhalten()
 {
 }

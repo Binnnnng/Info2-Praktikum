@@ -54,6 +54,18 @@
     <ClInclude Include="SimuClient.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="dmath.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="FahrAusnahme.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Streckenende.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Losfahren.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -86,11 +98,24 @@
     <ClCompile Include="FzgParken.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="dmath.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="FahrAusnahme.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Streckenende.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Losfahren.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="SimuClient.lib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SimuServer.jar" />
+    <None Include="..\Debug\SimuClient.dll" />
   </ItemGroup>
 </Project>

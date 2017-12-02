@@ -2,6 +2,7 @@
 #include "Fahrzeug.h"
 #include<iostream>
 #include<iomanip>
+#include<stdio.h>
 #include "FzgVerhalten.h"
 #include "FzgFahren.h"
 #include "Weg.h"
@@ -61,6 +62,14 @@ void Fahrzeug::vInitialisierung()
 	p_dMaxGeschwindigkeit = 0;
 	p_dGeschwindigkeit = 0;
 	p_dAbschnittStrecke = 0;
+	p_pVerhalten = NULL;
+	p_pAktuelleStrecke = NULL;
+}
+
+double Fahrzeug::dGetPos()
+{
+	double dlength = p_pAktuelleStrecke->dGetLength();
+	return p_dAbschnittStrecke / dlength;
 }
 
 void Fahrzeug::vAusgabe()
@@ -142,6 +151,9 @@ Fahrzeug& Fahrzeug::operator=(const Fahrzeug& cpyfahrzeug)
 		p_dZeit = cpyfahrzeug.p_dZeit;
 		p_sName = cpyfahrzeug.p_sName;
 		//p_iID = cpyfahrzeug.p_iID;
+		p_dAbschnittStrecke = cpyfahrzeug.p_dAbschnittStrecke;
+		p_pVerhalten = cpyfahrzeug.p_pVerhalten;
+		p_pAktuelleStrecke = cpyfahrzeug.p_pAktuelleStrecke;
 	}
 	return *this;
 }
@@ -163,7 +175,7 @@ void Fahrzeug::vNeueStrecke(Weg * weg)
 double Fahrzeug::dGeschwindigkeit()
 {
 	Weg * weg = p_pVerhalten->pGetWeg();
-	if (weg->dGetLimit() == -1)
+	if (weg->dGetLimit() == -1) // NULL Pointer
 	{
 		return p_dMaxGeschwindigkeit;
 	}
@@ -172,4 +184,13 @@ double Fahrzeug::dGeschwindigkeit()
 		return weg->dGetLimit();
 	}
 	return p_dMaxGeschwindigkeit;
+}
+
+void Fahrzeug::vZeichnen(Weg * pWeg)
+{
+}
+
+double Fahrzeug::dGetAbschnittStrecke()
+{
+	return p_dAbschnittStrecke;
 }

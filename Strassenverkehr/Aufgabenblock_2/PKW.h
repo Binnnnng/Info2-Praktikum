@@ -15,6 +15,8 @@ public:
 	void virtual vAbfertigung();
 	void virtual vostreamAusgabe(ostream &out);
 	double dTanken(double menge);
+	PKW& operator=(const PKW& cpypkw);
+	void virtual vZeichnen(Weg* pWeg);
 	virtual ~PKW();
 
 private:

@@ -2,8 +2,11 @@
 #include "Fahrrad.h"
 #include <iostream>
 #include<iomanip>
+#include "Weg.h"
+#include "SimuClient.h"
 
 extern double dGlobaleZeit;
+using namespace std;
 
 Fahrrad::Fahrrad() :Fahrzeug()
 {
@@ -48,7 +51,7 @@ void Fahrrad::vostreamAusgabe(ostream &out)
 	out << setw(14) << p_dTankinhalt;
 	out << resetiosflags(ios::left) << endl;
 }
-
+/*
 void Fahrrad::vAbfertigung()
 {
 	if (dGlobaleZeit != 0)  
@@ -57,7 +60,7 @@ void Fahrrad::vAbfertigung()
 		Fahrzeug::vAbfertigung();
 	}
 }
-
+*/
 void Fahrrad::vInitialisierung()
 {
 	p_dVerbrauch = 0.0;
@@ -66,7 +69,7 @@ void Fahrrad::vInitialisierung()
 	p_dTankvolumen = 0.0;
 }
 
-void Fahrrad::dGeschwindigkeit()
+double Fahrrad::dGeschwindigkeit()
 {
 	double step = 0.005;
 	double abzugkmh = (p_dGesamtStrecke*step)*p_dMaxGeschwindigkeit;
@@ -80,4 +83,21 @@ void Fahrrad::dGeschwindigkeit()
 	{
 		p_dGeschwindigkeit = p_dMaxGeschwindigkeit - abzugkmh;  //pro KM 0,5% abzug von MaxKMH
 	}
+
+	Weg* weg = p_pVerhalten->pGetWeg();
+	if (weg->dGetLimit() == -1)
+	{
+		return p_dGeschwindigkeit;
+	}
+	if (weg->dGetLimit() < p_dGeschwindigkeit)
+	{
+		return weg->dGetLimit();
+	}
+
+	return p_dGeschwindigkeit;
+}
+
+void Fahrrad::vZeichnen(Weg * pWeg)
+{
+	bZeichneFahrrad(p_sName, pWeg->returnName(), dGetPos(), dGeschwindigkeit());
 }

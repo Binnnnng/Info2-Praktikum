@@ -8,7 +8,11 @@
 #include<vector>
 #include"Weg.h"
 #include"SimuClient.h"
-//#include"LazyListe.h"
+#include "dmath.h"
+#include"LazyListe.h"
+#include<stdlib.h>
+#include<time.h>
+
 
 using namespace std;
 double dGlobaleZeit = 0.0;
@@ -31,10 +35,169 @@ void createTable()
 	cout << resetiosflags(ios::left);
 }
 
+void vAufgabe_6_2()
+{
+	srand(time(0));
+	LazyListe<int>* list = new LazyListe<int>();
+	for (int i = 0; i < 10; i++)
+	{
+		list->push_back((int)(rand() % 11));
+	}
+	list->vAktualisieren();
+	LazyListe<int>::iterator listIT;
+	for (listIT = list->begin(); listIT != list->end(); listIT++)
+	{
+		cout << (*listIT) << " ";
+	}
+	cout << endl;
+	for (listIT = list->begin(); listIT != list->end(); listIT++)
+	{
+		if (*listIT > 5)
+		{
+			list->erase(listIT);
+		}
+	}
+	for (listIT = list->begin(); listIT != list->end(); listIT++)
+	{
+		cout << (*listIT) << " ";
+	}
+	cout << endl;
+	list->vAktualisieren();
+	for (listIT = list->begin(); listIT != list->end(); listIT++)
+	{
+		cout << (*listIT) << " ";
+	}
+	cout << endl;
+	list->push_front((int)(rand() % 11));
+	list->push_back((int)(rand() % 11));
+	list->vAktualisieren();
+	for (listIT = list->begin(); listIT != list->end(); listIT++)
+	{
+		cout << (*listIT) << " ";
+	}
+	cout << endl;
+}
+
+void vAufgabe_6()
+{
+	Weg* WegOrt = new Weg("Innerorts", 500, Weg::Innerorts);
+	Weg* WegAutobahn = new Weg("Autobahn", 500, Weg::Autobahn);
+
+	PKW* PKW_Fahr = new PKW("PKW_Fahr", 180, 6, 60);
+	PKW* PKW_P6 = new PKW("PKW_P6", 180, 8, 80);
+	Fahrrad* Fahrrad_Fahr = new Fahrrad("Fahrrad_Fahr", 50);
+	Fahrrad* Fahrrad_P8 = new Fahrrad("Fahrrad_P8", 50);
+
+	WegOrt->vAnnahme(Fahrrad_Fahr);
+	WegOrt->vAnnahme(PKW_P6, 6);
+	WegAutobahn->vAnnahme(Fahrrad_P8, 8);
+	WegAutobahn->vAnnahme(PKW_Fahr);
+
+	bInitialisiereGrafik(800, 800);
+	int koords[] = { 700, 250, 100, 250 };
+	bZeichneStrasse(WegOrt->returnName(), WegAutobahn->returnName(), 500, 2, koords);
+
+	while (dGlobaleZeit <= 100)
+	{
+		vSetzeZeit(dGlobaleZeit);
+		vSleep(500);
+
+		WegAutobahn->vAbfertigung();
+		WegOrt->vAbfertigung();
+
+		dGlobaleZeit += tInkrement;
+	}
+}
+
+void vAufgabe_5()
+{
+	Weg* weg = new Weg("test", 20, Weg::Innerorts);
+
+	PKW* Pkw = new PKW("BMW", 100, 20, 20);
+	Fahrrad* bike = new Fahrrad("BMX", 30);
+
+	weg->vAnnahme(Pkw, 3);
+	weg->vAnnahme(bike);
+
+	dGlobaleZeit = 1.0;
+	cout << "G: " << dGlobaleZeit << endl;
+	createTable();
+	cout << *bike << endl;
+	cout << *Pkw << endl;
+	weg->vAbfertigung();
+	dGlobaleZeit = 2.0;
+	cout << "G: " << dGlobaleZeit << endl;
+	cout << *bike << endl;
+	cout << *Pkw << endl;
+	weg->vAbfertigung();
+	dGlobaleZeit = 3.0;
+	cout << "G: " << dGlobaleZeit << endl;
+	cout << *bike << endl;
+	cout << *Pkw << endl;
+	weg->vAbfertigung();
+}
+
+void vAufgabe_4_2() //Parken Routine
+{
+	Weg* weg = new Weg("test", 20, Weg::Innerorts);
+
+	PKW* Pkw = new PKW("BMW", 100, 20, 20);
+
+	weg->vAnnahme(Pkw, 3);
+
+	dGlobaleZeit = 1.0;
+	weg->vAbfertigung();
+	dGlobaleZeit = 2.0;
+	weg->vAbfertigung();
+	dGlobaleZeit = 3.0;
+	weg->vAbfertigung();
+}
+
+void vAufgabe_4_1()  //Ende Routine
+{
+	Weg* weg = new Weg("test", 20, Weg::Innerorts);
+
+	PKW* Pkw = new PKW("BMW", 10, 20, 20);
+
+	weg->vAnnahme(Pkw);
+
+	dGlobaleZeit = 1.0;
+	weg->vAbfertigung();
+	dGlobaleZeit = 2.0;
+	weg->vAbfertigung();
+	dGlobaleZeit = 3.0;
+	weg->vAbfertigung();
+}
+
 void vAufgabe_4()
 {
-	Weg* weg = new Weg("Weg1", 20, Weg::Innerorts);
-	cout << *weg << endl;
+	Weg* weg = new Weg("test", 20, Weg::Innerorts);
+
+	PKW* Pkw = new PKW("BMW", 10, 20, 5);
+	PKW* Pkw2 = new PKW("Audi", 80, 20, 5);
+	Fahrrad* bike = new Fahrrad("BMX", 30);
+
+	weg->vAnnahme(Pkw);
+	weg->vAnnahme(Pkw2, 2);
+	weg->vAnnahme(bike);
+
+	cout << *weg << endl << endl;
+
+	createTable();
+	cout << *Pkw ;
+	cout << *Pkw2 ;
+	cout << *bike << endl ;
+
+	dGlobaleZeit = 3.0;
+	weg->vAbfertigung();
+	weg->vAbfertigung();
+	cout << *weg << endl << endl;
+
+	createTable();
+	cout << *Pkw;
+	cout << *Pkw2;
+	cout << *bike << endl;
+	cout << *weg << endl << endl;
 }
 
 void vAufgabe_3()
@@ -200,7 +363,7 @@ void vAufgabe_1()
 
 int main(void) 
 {
-	vAufgabe_2();
+	vAufgabe_6();
 	return 0;
 }
 
