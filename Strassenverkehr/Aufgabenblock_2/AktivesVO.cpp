@@ -54,3 +54,5 @@ bool AktivesVO::operator==(const AktivesVO& aVO)
 {
 	return p_iID == aVO.p_iID;
 }
+
+

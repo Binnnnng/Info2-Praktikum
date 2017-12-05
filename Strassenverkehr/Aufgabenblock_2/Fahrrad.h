@@ -12,7 +12,6 @@ public:
 	virtual ~Fahrrad();
 	void virtual vAusgabe();
 	void virtual vostreamAusgabe(ostream &out);
-	//void virtual vAbfertigung();
 	void virtual vZeichnen(Weg* pWeg);
 	double virtual dGeschwindigkeit();
 

@@ -78,16 +78,16 @@ void PKW::vAbfertigung()
 		double d_diff = dGlobaleZeit - p_dZeit;
 		double d_teil = p_pVerhalten->dStrecke(this, d_diff);
 		double tverbrauch = (p_dVerbrauch/100)* d_teil;
-		if (tverbrauch <= p_dTankinhalt)
+		if (tverbrauch <= p_dTankinhalt && tverbrauch != 0)
 		{
 			dVerbrauch();
+			p_dGesamtStrecke += d_teil;
+			p_dAbschnittStrecke += d_teil;
+			p_dZeit = dGlobaleZeit;
 			if (p_dGesamtStrecke > 0)
 			{
 				p_dTankinhalt -= tverbrauch;
 			}
-			p_dGesamtStrecke += d_teil;
-			p_dAbschnittStrecke += d_teil;
-			p_dZeit = dGlobaleZeit;
 		}
 		else if (p_dTankinhalt<tverbrauch && p_dTankinhalt>0)
 		{

@@ -20,9 +20,9 @@ Streckenende::~Streckenende()
 
 void Streckenende::vBearbeiten()
 {
-	cout << "++++++++++++++++++++++++++++++++++++++ Streckenende ++++++++++++++++++++++++++++++++++++++" << endl;
+	cout << "------------------------------------------ Streckenende --------------------------------------------" << endl;
+	createtable();
 	cout << *p_pFahrzeug << endl;
-	cout << *p_pWeg << endl;
-
+	cout << *p_pWeg << endl << endl;
 	p_pWeg->vAbgabe(p_pFahrzeug);
 }

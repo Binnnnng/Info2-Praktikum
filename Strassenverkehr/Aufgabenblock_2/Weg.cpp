@@ -42,7 +42,7 @@ void Weg::vostreamAusgabe(ostream & out)
 	list<Fahrzeug*>::iterator iterator = p_pFahrzeug.begin();
 	while (iterator != p_pFahrzeug.end())
 	{
-		out << (*iterator)-> returnName() << " ";
+		out << "|-|" << (*iterator)-> returnName() << "|-|";
 		iterator++;
 	}
 	out << ")";

@@ -84,9 +84,9 @@ void vAufgabe_6()
 	Weg* WegAutobahn = new Weg("Autobahn", 500, Weg::Autobahn);
 
 	PKW* PKW_Fahr = new PKW("PKW_Fahr", 180, 6, 60);
-	PKW* PKW_P6 = new PKW("PKW_P6", 180, 8, 80);
-	Fahrrad* Fahrrad_Fahr = new Fahrrad("Fahrrad_Fahr", 50);
-	Fahrrad* Fahrrad_P8 = new Fahrrad("Fahrrad_P8", 50);
+	PKW* PKW_P6 = new PKW("PKW_P6", 200, 10, 70);
+	Fahrrad* Fahrrad_Fahr = new Fahrrad("Fahrrad_Fahr", 80);
+	Fahrrad* Fahrrad_P8 = new Fahrrad("Fahrrad_P8", 100);
 
 	WegOrt->vAnnahme(Fahrrad_Fahr);
 	WegOrt->vAnnahme(PKW_P6, 6);

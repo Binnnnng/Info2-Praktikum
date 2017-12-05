@@ -28,12 +28,9 @@ public:
 	double dGetAbschnittStrecke();
 
 private:
-	//static int p_iMaxID;
 	void vInitialisierung();
 
 protected:
-	//int p_iID;
-	//string p_sName;
 	double p_dMaxGeschwindigkeit;
 	double p_dGesamtStrecke;
 	double p_dGesamtZeit;
@@ -44,5 +41,3 @@ protected:
 	Weg *p_pAktuelleStrecke;
 	double dGetPos();
 };
-
-//ostream& operator <<(ostream& out, Fahrzeug&fahrzeug);

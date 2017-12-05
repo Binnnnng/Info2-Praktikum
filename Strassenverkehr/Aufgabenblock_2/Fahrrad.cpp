@@ -51,16 +51,7 @@ void Fahrrad::vostreamAusgabe(ostream &out)
 	out << setw(14) << p_dTankinhalt;
 	out << resetiosflags(ios::left) << endl;
 }
-/*
-void Fahrrad::vAbfertigung()
-{
-	if (dGlobaleZeit != 0)  
-	{
-		dGeschwindigkeit();
-		Fahrzeug::vAbfertigung();
-	}
-}
-*/
+
 void Fahrrad::vInitialisierung()
 {
 	p_dVerbrauch = 0.0;
