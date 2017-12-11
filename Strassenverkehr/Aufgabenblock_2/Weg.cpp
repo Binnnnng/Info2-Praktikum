@@ -38,11 +38,11 @@ void Weg::vostreamAusgabe(ostream & out)
 	out << resetiosflags(ios::right);
 	out << setiosflags(ios::left);
 	out << p_dLength;
-	out << " ( ";
+	out << " (Fahrzeuge: ";
 	list<Fahrzeug*>::iterator iterator = p_pFahrzeug.begin();
 	while (iterator != p_pFahrzeug.end())
 	{
-		out << "|-|" << (*iterator)-> returnName() << "|-|";
+		out << (*iterator)-> returnName() << "|-|";
 		iterator++;
 	}
 	out << ")";
@@ -57,9 +57,9 @@ void Weg::vAbfertigung()
 		{
 			(*pFahrzeugIt)->vAbfertigung();
 		}
-		catch (FahrAusnahme& exception)
+		catch (FahrAusnahme& Ausnahme)
 		{
-			exception.vBearbeiten();
+			Ausnahme.vBearbeiten();
 		}
 
 		(*pFahrzeugIt)->vZeichnen(this);

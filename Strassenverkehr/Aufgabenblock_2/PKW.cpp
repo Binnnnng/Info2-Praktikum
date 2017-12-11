@@ -73,35 +73,28 @@ void PKW::vostreamAusgabe(ostream &out)
 
 void PKW::vAbfertigung()
 {
-	if (dGlobaleZeit != 0 && p_dZeit != dGlobaleZeit)
+	if (p_dZeit != dGlobaleZeit)
 	{
 		double d_diff = dGlobaleZeit - p_dZeit;
+		p_dZeit = dGlobaleZeit;
 		double d_teil = p_pVerhalten->dStrecke(this, d_diff);
 		double tverbrauch = (p_dVerbrauch/100)* d_teil;
-		if (tverbrauch <= p_dTankinhalt && tverbrauch != 0)
-		{
-			dVerbrauch();
-			p_dGesamtStrecke += d_teil;
-			p_dAbschnittStrecke += d_teil;
-			p_dZeit = dGlobaleZeit;
-			if (p_dGesamtStrecke > 0)
-			{
-				p_dTankinhalt -= tverbrauch;
-			}
-		}
-		else if (p_dTankinhalt<tverbrauch && p_dTankinhalt>0)
+
+		if (p_dTankinhalt < tverbrauch)
 		{
 			p_dTankinhalt = 0;
-			p_dTankinhalt = tverbrauch;
-			dVerbrauch();
+			p_dMaxGeschwindigkeit = 0;
 			p_dGesamtStrecke += d_teil;
 			p_dAbschnittStrecke += d_teil;
-			p_dZeit = dGlobaleZeit;
+			p_dgesVerbrauch += tverbrauch;
 		}
-		else if (p_dTankinhalt <= 0)
+
+		if (p_dTankinhalt > 0)
 		{
-			p_dTankinhalt = 0;
-			p_dGeschwindigkeit = 0;
+			p_dTankinhalt -= tverbrauch;
+			p_dGesamtStrecke += d_teil;
+			p_dAbschnittStrecke += d_teil;
+			p_dgesVerbrauch += tverbrauch;
 		}
 	}
 }

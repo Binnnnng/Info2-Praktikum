@@ -21,7 +21,6 @@ public:
 
 private:
 	void vInitialisierung();
-	string klasse;
 
 protected:
 	double p_dgesVerbrauch;

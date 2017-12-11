@@ -23,7 +23,7 @@ void Losfahren::vBearbeiten()
 	cout << "-------------------------------------------- Losfahren ---------------------------------------------" << endl;
 	createtable();
 	cout << *p_pFahrzeug << endl;
-	cout << *p_pWeg << endl << endl;
+	cout << *p_pWeg << endl << endl << endl;
 	p_pWeg->vAbgabe(p_pFahrzeug);
 	p_pWeg->vAnnahme(p_pFahrzeug);
 }

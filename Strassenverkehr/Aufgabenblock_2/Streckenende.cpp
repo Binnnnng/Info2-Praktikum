@@ -23,6 +23,6 @@ void Streckenende::vBearbeiten()
 	cout << "------------------------------------------ Streckenende --------------------------------------------" << endl;
 	createtable();
 	cout << *p_pFahrzeug << endl;
-	cout << *p_pWeg << endl << endl;
+	cout << *p_pWeg << endl << endl << endl;
 	p_pWeg->vAbgabe(p_pFahrzeug);
 }

@@ -83,10 +83,10 @@ void vAufgabe_6()
 	Weg* WegOrt = new Weg("Innerorts", 500, Weg::Innerorts);
 	Weg* WegAutobahn = new Weg("Autobahn", 500, Weg::Autobahn);
 
-	PKW* PKW_Fahr = new PKW("PKW_Fahr", 180, 6, 60);
-	PKW* PKW_P6 = new PKW("PKW_P6", 200, 10, 70);
-	Fahrrad* Fahrrad_Fahr = new Fahrrad("Fahrrad_Fahr", 80);
-	Fahrrad* Fahrrad_P8 = new Fahrrad("Fahrrad_P8", 100);
+	PKW* PKW_Fahr = new PKW("PKW_Fahr", 180, 4, 70);
+	PKW* PKW_P6 = new PKW("PKW_P6", 180, 10, 70);
+	Fahrrad* Fahrrad_Fahr = new Fahrrad("Fahrrad_Fahr", 160);
+	Fahrrad* Fahrrad_P8 = new Fahrrad("Fahrrad_P8", 160);
 
 	WegOrt->vAnnahme(Fahrrad_Fahr);
 	WegOrt->vAnnahme(PKW_P6, 6);
@@ -111,6 +111,8 @@ void vAufgabe_6()
 
 void vAufgabe_5()
 {
+	tInkrement = 1.0;
+
 	Weg* weg = new Weg("test", 20, Weg::Innerorts);
 
 	PKW* Pkw = new PKW("BMW", 100, 20, 20);
@@ -119,54 +121,50 @@ void vAufgabe_5()
 	weg->vAnnahme(Pkw, 3);
 	weg->vAnnahme(bike);
 
-	dGlobaleZeit = 1.0;
-	cout << "G: " << dGlobaleZeit << endl;
-	createTable();
-	cout << *bike << endl;
-	cout << *Pkw << endl;
-	weg->vAbfertigung();
-	dGlobaleZeit = 2.0;
-	cout << "G: " << dGlobaleZeit << endl;
-	cout << *bike << endl;
-	cout << *Pkw << endl;
-	weg->vAbfertigung();
-	dGlobaleZeit = 3.0;
-	cout << "G: " << dGlobaleZeit << endl;
-	cout << *bike << endl;
-	cout << *Pkw << endl;
-	weg->vAbfertigung();
+	while (dGlobaleZeit <= 4)
+	{
+		weg->vAbfertigung();
+		cout << *bike << endl;
+		cout << *Pkw << endl;
+		dGlobaleZeit += tInkrement;
+	}
 }
 
-void vAufgabe_4_2() //Parken Routine
+void vAufgabe_4_2() //Losfahren nach Parken Routine
 {
+	tInkrement = 1.0;
 	Weg* weg = new Weg("test", 20, Weg::Innerorts);
 
 	PKW* Pkw = new PKW("BMW", 100, 20, 20);
 
 	weg->vAnnahme(Pkw, 3);
+	weg->vAbfertigung();
 
-	dGlobaleZeit = 1.0;
-	weg->vAbfertigung();
-	dGlobaleZeit = 2.0;
-	weg->vAbfertigung();
-	dGlobaleZeit = 3.0;
-	weg->vAbfertigung();
+	while (dGlobaleZeit <= 4)
+	{
+		weg->vAbfertigung();
+		//cout << *Pkw << endl;
+		//cout << *weg << endl;
+		dGlobaleZeit += tInkrement;
+	}
 }
 
-void vAufgabe_4_1()  //Ende Routine
+void vAufgabe_4_1()  //Streckenende Routine
 {
+	tInkrement = 1.0;
 	Weg* weg = new Weg("test", 20, Weg::Innerorts);
 
 	PKW* Pkw = new PKW("BMW", 10, 20, 20);
 
 	weg->vAnnahme(Pkw);
 
-	dGlobaleZeit = 1.0;
-	weg->vAbfertigung();
-	dGlobaleZeit = 2.0;
-	weg->vAbfertigung();
-	dGlobaleZeit = 3.0;
-	weg->vAbfertigung();
+	while (dGlobaleZeit <= 3)
+	{
+		weg->vAbfertigung();
+		//cout << *Pkw << endl;
+		//cout << *weg << endl;
+		dGlobaleZeit += tInkrement;
+	}
 }
 
 void vAufgabe_4()
