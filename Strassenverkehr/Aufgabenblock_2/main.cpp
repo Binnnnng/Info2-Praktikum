@@ -35,9 +35,9 @@ void createTable()
 	cout << resetiosflags(ios::left);
 }
 
-void vAufgabe_6_2()
+void vAufgabe_6_1()
 {
-	srand(time(0));
+	//srand(time(0));
 	LazyListe<int>* list = new LazyListe<int>();
 	for (int i = 0; i < 10; i++)
 	{
@@ -83,10 +83,10 @@ void vAufgabe_6()
 	Weg* WegOrt = new Weg("Innerorts", 500, Weg::Innerorts);
 	Weg* WegAutobahn = new Weg("Autobahn", 500, Weg::Autobahn);
 
-	PKW* PKW_Fahr = new PKW("PKW_Fahr", 180, 4, 70);
+	PKW* PKW_Fahr = new PKW("PKW_Fahr", 160, 4, 70);
 	PKW* PKW_P6 = new PKW("PKW_P6", 180, 10, 70);
-	Fahrrad* Fahrrad_Fahr = new Fahrrad("Fahrrad_Fahr", 160);
-	Fahrrad* Fahrrad_P8 = new Fahrrad("Fahrrad_P8", 160);
+	Fahrrad* Fahrrad_Fahr = new Fahrrad("Fahrrad_Fahr", 30);
+	Fahrrad* Fahrrad_P8 = new Fahrrad("Fahrrad_P8", 50);
 
 	WegOrt->vAnnahme(Fahrrad_Fahr);
 	WegOrt->vAnnahme(PKW_P6, 6);
@@ -97,7 +97,7 @@ void vAufgabe_6()
 	int koords[] = { 700, 250, 100, 250 };
 	bZeichneStrasse(WegOrt->returnName(), WegAutobahn->returnName(), 500, 2, koords);
 
-	while (dGlobaleZeit <= 100)
+	while (dGlobaleZeit <= 50)
 	{
 		vSetzeZeit(dGlobaleZeit);
 		vSleep(500);
@@ -107,6 +107,7 @@ void vAufgabe_6()
 
 		dGlobaleZeit += tInkrement;
 	}
+	vBeendeGrafik();
 }
 
 void vAufgabe_5()
@@ -361,7 +362,7 @@ void vAufgabe_1()
 
 int main(void) 
 {
-	vAufgabe_6();
+	vAufgabe_6_1();
 	return 0;
 }
 

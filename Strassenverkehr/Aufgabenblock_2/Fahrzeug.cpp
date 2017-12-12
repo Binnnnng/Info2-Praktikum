@@ -88,9 +88,10 @@ void Fahrzeug::vAbfertigung()
 	if (p_dZeit != dGlobaleZeit)
 	{
 		double tDifferenz = dGlobaleZeit - p_dZeit;
-		p_dAbschnittStrecke += p_pVerhalten->dStrecke(this, tDifferenz);
-		p_dGesamtStrecke += p_pVerhalten->dStrecke(this, tDifferenz);
 		p_dZeit = dGlobaleZeit;
+		double d_teil = p_pVerhalten->dStrecke(this, tDifferenz);
+		p_dAbschnittStrecke += d_teil;
+		p_dGesamtStrecke += d_teil;
 	}
 }
 
