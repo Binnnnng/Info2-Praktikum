@@ -13,6 +13,7 @@ public:
 	AktivesVO(string namestr);
 	virtual ~AktivesVO();
 	void virtual vostreamAusgabe(ostream& out);
+	virtual void vAbfertigung() = 0;
 	void vInitialization();
 	string returnName();
 	bool operator==(const AktivesVO& aVO);

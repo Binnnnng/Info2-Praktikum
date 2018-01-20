@@ -48,7 +48,6 @@ public:
 	void push_front(const T einObjekt)
 	{
 		p_ListeAktionen.push_back(new LazyPushFront<T>(einObjekt, &this->p_ListeObjekte));
-
 		bChanged = true;
 		return;
 	}
@@ -56,7 +55,6 @@ public:
 	void erase(iterator itObjekt)
 	{
 		p_ListeAktionen.push_back(new LazyErase<T>(itObjekt, &this->p_ListeObjekte));
-
 		bChanged = true;
 		return;
 	}

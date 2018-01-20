@@ -18,17 +18,17 @@ FahrAusnahme::FahrAusnahme(Fahrzeug * pFahrzeug, Weg * pWeg) : p_pFahrzeug(pFahr
 FahrAusnahme::~FahrAusnahme()
 {
 }
-
+/*
 void FahrAusnahme::vBearbeiten()
 {
-	/*
+	
 	cout << "-------------------------------------------- Exception ----------------------------------------------" << endl;
 	createtable();
 	cout << *p_pFahrzeug << endl;
 	cout << *p_pWeg << endl;
-	*/
+	
 }
-
+*/
 void FahrAusnahme::createtable()
 {
 	cout <<"Simulation Time:"<< dGlobaleZeit << endl << endl;
