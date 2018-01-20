@@ -66,6 +66,12 @@
     <ClInclude Include="Losfahren.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="tmpDataHolder.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Kreuzung.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -108,6 +114,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Losfahren.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="tmpDataHolder.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Kreuzung.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

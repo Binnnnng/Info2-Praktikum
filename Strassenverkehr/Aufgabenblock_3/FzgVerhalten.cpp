@@ -10,7 +10,7 @@ FzgVerhalten::FzgVerhalten()
 {
 }
 
-FzgVerhalten::FzgVerhalten(Weg * weg) :p_pWeg(weg)
+FzgVerhalten::FzgVerhalten(Weg * weg, int Vtype) :p_pWeg(weg), Vtype(Vtype)
 {
 }
 

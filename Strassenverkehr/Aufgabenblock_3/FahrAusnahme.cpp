@@ -21,12 +21,10 @@ FahrAusnahme::~FahrAusnahme()
 
 void FahrAusnahme::vBearbeiten()
 {
-	/*
 	cout << "-------------------------------------------- Exception ----------------------------------------------" << endl;
 	createtable();
 	cout << *p_pFahrzeug << endl;
 	cout << *p_pWeg << endl;
-	*/
 }
 
 void FahrAusnahme::createtable()

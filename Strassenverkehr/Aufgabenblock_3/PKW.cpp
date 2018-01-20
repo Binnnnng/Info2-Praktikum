@@ -37,6 +37,7 @@ PKW::PKW(string namestr, double MaxGeschwindigkeit, double verbrauch, double vol
 	vInitialisierung();
 	p_dVerbrauch = verbrauch;
 	p_dTankvolumen = volumen;
+	p_dTankinhalt = p_dTankvolumen / 2.0;
 }
 
 void PKW::vInitialisierung()
@@ -101,8 +102,17 @@ void PKW::vAbfertigung()
 
 double PKW::dTanken(double menge)
 {
-	p_dTankinhalt = Fahrzeug::dTanken(menge);
-	return 0;
+	if (menge == -1)
+	{
+		menge = p_dTankvolumen;
+	}
+	double tmpInhalt = p_dTankinhalt;
+	p_dTankinhalt = tmpInhalt + menge;
+	if (p_dTankinhalt > p_dTankvolumen)
+	{
+		p_dTankinhalt = p_dTankvolumen;
+	}
+	return p_dTankinhalt - tmpInhalt;
 }
 
 PKW & PKW::operator=(const PKW & cpypkw)

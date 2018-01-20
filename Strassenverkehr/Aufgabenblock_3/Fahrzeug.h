@@ -18,7 +18,7 @@ public:
 	void virtual vostreamAusgabe(ostream &out);
 	void virtual vAusgabe();
 	void virtual vAbfertigung();
-	double virtual dTanken(double menge);
+	double virtual dTanken(double menge = -1);
 	bool operator<(const Fahrzeug& comp);
 	Fahrzeug& operator=(const Fahrzeug& cpyfahrzeug);
 	void vSetVerhalten(FzgVerhalten* pVerhalten);
@@ -26,6 +26,10 @@ public:
 	double virtual dGeschwindigkeit();
 	void virtual vZeichnen(Weg* pWeg);
 	double dGetAbschnittStrecke();
+	double dGetSpeed();
+	void SetSpeed(double speed);
+	void SetAbschnittStrecke(double strecke);
+	bool activeObject();
 
 private:
 	void vInitialisierung();

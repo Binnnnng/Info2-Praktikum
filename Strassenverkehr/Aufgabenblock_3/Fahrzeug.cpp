@@ -96,14 +96,7 @@ void Fahrzeug::vAbfertigung()
 
 double Fahrzeug::dTanken(double menge) 
 {
-	if (menge<0)
-	{
-		return 55.0;
-	}
-	else
-	{
-		return menge;
-	}
+	return 0.0;
 }
 
 bool Fahrzeug::operator<(const Fahrzeug& comp)
@@ -166,4 +159,28 @@ void Fahrzeug::vZeichnen(Weg * pWeg)
 double Fahrzeug::dGetAbschnittStrecke()
 {
 	return p_dAbschnittStrecke;
+}
+
+double Fahrzeug::dGetSpeed()
+{
+	return p_dGeschwindigkeit;
+}
+
+void Fahrzeug::SetSpeed(double speed)
+{
+	p_dMaxGeschwindigkeit = speed;
+}
+
+void Fahrzeug::SetAbschnittStrecke(double strecke)
+{
+	p_dAbschnittStrecke = strecke;
+}
+
+bool Fahrzeug::activeObject()
+{
+	if (this->p_pVerhalten->Vtype == FzgVerhalten::Fahren)
+	{
+		return true;
+	}
+	return false;
 }

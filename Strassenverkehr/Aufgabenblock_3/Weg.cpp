@@ -5,6 +5,7 @@
 #include "FzgParken.h"
 #include "FahrAusnahme.h"
 #include "LazyListe.h"
+#include "tmpDataHolder.h"
 
 using namespace std;
 
@@ -12,7 +13,7 @@ Weg::Weg()
 {
 }
 
-Weg::Weg(string namestr, double length, Begrenzung eLimit) :AktivesVO(namestr), p_dLength(length), p_eLimit(eLimit)
+Weg::Weg(string namestr, double length, Begrenzung eLimit, bool ueberholverbot) :AktivesVO(namestr), p_dLength(length), p_eLimit(eLimit), p_bueberholverbot(ueberholverbot)
 {
 }
 
@@ -28,6 +29,50 @@ double Weg::dGetLimit()
 double Weg::dGetLength()
 {
 	return p_dLength;
+}
+
+bool Weg::br_ueberholverbot()
+{
+	return p_bueberholverbot;
+}
+
+Weg::Begrenzung Weg::nextSpeedLimit(double speed)
+{
+	if (speed == 1) {
+		return Weg::Innerorts;
+	}
+	else if (speed == 2)
+	{
+		return Weg::Landstraße;
+	}
+	else if (speed == 3)
+	{
+		return Weg::Autobahn;
+	}
+	else
+	{
+		throw "ERROR: Wrong Speed Limit!";
+	}
+}
+
+Weg * Weg::pGetZugehoerigerWeg()
+{
+	return p_pZugehoerigerWeg;
+}
+
+Kreuzung * Weg::pGetZielKreuzung()
+{
+	return p_pZielKreuzung;
+}
+
+void Weg::vSetZugehoerigerWeg(Weg * weg)
+{
+	p_pZugehoerigerWeg = weg;
+}
+
+void Weg::vSetZielKreuzung(Kreuzung * cross)
+{
+	p_pZielKreuzung = cross;
 }
 
 void Weg::vostreamAusgabe(ostream & out)
@@ -50,12 +95,20 @@ void Weg::vostreamAusgabe(ostream & out)
 
 void Weg::vAbfertigung()
 {
+	Fahrzeug* tmpData = new tmpDataHolder();
+	tmpData->SetAbschnittStrecke(this->p_dLength);
+	this->p_lastexecuted = tmpData;
+
 	list<Fahrzeug*>::iterator pFahrzeugIt = p_pFahrzeug.begin();
 	while (pFahrzeugIt != p_pFahrzeug.end())
 	{
 		try
 		{
 			(*pFahrzeugIt)->vAbfertigung();
+			if ((*pFahrzeugIt)->activeObject())
+			{
+				this->p_lastexecuted = (*pFahrzeugIt);
+			}
 		}
 		catch (FahrAusnahme& Ausnahme)
 		{
@@ -66,6 +119,7 @@ void Weg::vAbfertigung()
 		pFahrzeugIt++;
 	}
 	p_pFahrzeug.vAktualisieren();
+	delete tmpData;
 }
 
 void Weg::vAnnahme(Fahrzeug * fahrzeug)
