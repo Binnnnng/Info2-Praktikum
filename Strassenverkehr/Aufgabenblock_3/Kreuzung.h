@@ -16,7 +16,7 @@ public:
 	void vVerbinde(string nameHin, string nameZurueck, double laenge, Kreuzung* toConnectCross,Weg::Begrenzung limit ,bool ueberholverbot);
 	void SetTankstelle(double volumen);
 	void vTanken(Fahrzeug* tankenFzg);
-	void vAnnehmen(Fahrzeug* fahrzeug, double);
+	void vAnnahme(Fahrzeug* fahrzeug, double);
 	void virtual vAbfertigung();
 	void vAddLeaving(Weg* weg);
 	Weg* randomWeg(Weg*);

@@ -41,7 +41,7 @@ double FzgFahren::dStrecke(Fahrzeug * fahrzeug, double zeit)
 		if (fahrzeug->dGetAbschnittStrecke() + dIntStrecke > nextpoint && prevSpeed > 0.0)
 		{
 			double d_Abstand = nextpoint - fahrzeug->dGetAbschnittStrecke();
-			fahrzeug->SetSpeed(prevSpeed);
+			//fahrzeug->SetSpeed(prevSpeed);
 			dIntStrecke = d_Abstand - 1;
 		}
 	}

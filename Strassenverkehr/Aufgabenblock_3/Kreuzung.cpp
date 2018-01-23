@@ -44,7 +44,7 @@ void Kreuzung::vTanken(Fahrzeug * tankenFzg)
 	p_dTankstelle -= AbzugVolumen;
 }
 
-void Kreuzung::vAnnehmen(Fahrzeug * fahrzeug, double zeit)
+void Kreuzung::vAnnahme (Fahrzeug* fahrzeug, double zeit)
 {
 	this->vTanken(fahrzeug);
 	Weg *weg = this->p_pLeaving.front();

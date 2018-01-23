@@ -81,21 +81,34 @@ void vAufgabe_8()
 	Fahrrad* FahrradPark = new Fahrrad("BMX", 30);
 	PKW* PkwPark = new PKW("Audi", 130, 5, 100);
 
+	/*
+	srand(time(NULL));
+	for (int i = 0; i < 12; i++)
+	{
+		PKW* PKWloop = new PKW("PKW"+to_string(i) ,srand() % 30+160,srand()%6+ 8,srand()%40+ 80);
+		KR1->vAnnahme(PKWloop, 0.6);
+	}
+	for (int i = 0; i < 12; i++)
+	{
+		Fahrrad* Bikeloop = new Fahrrad("Fahrrad" + to_string(i), srand() % 7+50);
+		KR1->vAnnahme(Bikeloop, 0.7);
+	}
+	*/
 
-
-	KR1->vAnnehmen(PkwFahr, 2);
-	KR1->vAnnehmen(FahrradPark, 4);
+	KR1->vAnnahme(PkwFahr, 2);
+	KR1->vAnnahme(FahrradPark, 4);
+	
 
 	dGlobaleZeit = 0.0;
 	double dZeitTakt = 0.1;
 	while (dGlobaleZeit <= 100)
 	{
 		vSetzeZeit(dGlobaleZeit);
-		vSleep(200);
+		vSleep(1);
 
 		if (dmath::nearly_equal(dGlobaleZeit, 10.0))
 		{
-			KR1->vAnnehmen(PkwPark, 12);
+			KR1->vAnnahme(PkwPark, 12);
 		}
 
 		KR1->vAbfertigung();
