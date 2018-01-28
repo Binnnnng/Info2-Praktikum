@@ -129,5 +129,6 @@
   <ItemGroup>
     <None Include="SimuServer.jar" />
     <None Include="..\Debug\SimuClient.dll" />
+    <None Include="CodeBlock.xps" />
   </ItemGroup>
 </Project>

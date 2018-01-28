@@ -77,10 +77,11 @@ void vAufgabe_8()
 	int koord6[] = { 320, 300, 320, 150, 200, 60, 80, 90, 70, 250, 170, 300, 320, 300 };
 	bZeichneStrasse("W44a", "W44b", 130, 7, koord6);
 
-	PKW* PkwFahr = new PKW("BMW", 120, 5, 10);
+	PKW* PkwFahr = new PKW("BMW", 120, 5, 80);
 	Fahrrad* FahrradPark = new Fahrrad("BMX", 30);
-	PKW* PkwPark = new PKW("Audi", 130, 5, 100);
-
+	PKW* PkwPark = new PKW("Audi", 130, 6, 100);
+	PKW* PkwFahr2 = new PKW("VW", 80, 12, 80);
+	PKW* PkwFahr3 = new PKW("OPEL", 220, 8, 80);
 	/*
 	srand(time(NULL));
 	for (int i = 0; i < 12; i++)
@@ -97,6 +98,8 @@ void vAufgabe_8()
 
 	KR1->vAnnahme(PkwFahr, 2);
 	KR1->vAnnahme(FahrradPark, 4);
+	KR1->vAnnahme(PkwFahr2, 2);
+	KR1->vAnnahme(PkwFahr3, 4);
 	
 
 	dGlobaleZeit = 0.0;
@@ -104,7 +107,7 @@ void vAufgabe_8()
 	while (dGlobaleZeit <= 100)
 	{
 		vSetzeZeit(dGlobaleZeit);
-		vSleep(1);
+		vSleep(200);
 
 		if (dmath::nearly_equal(dGlobaleZeit, 10.0))
 		{
@@ -140,7 +143,7 @@ void vAufgabe_7()
 	while (dGlobaleZeit <= 50)
 	{
 		vSetzeZeit(dGlobaleZeit);
-		vSleep(200);
+		vSleep(300);
 		if (dmath::nearly_equal(dGlobaleZeit,27))
 		{
 			WegOrt->vAnnahme(PKW_2, 30);
