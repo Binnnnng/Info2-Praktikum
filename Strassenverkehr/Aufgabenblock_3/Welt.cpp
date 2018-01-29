@@ -28,7 +28,7 @@ Welt::~Welt()
 void Welt::vSimulieren()
 {
 	list<Kreuzung*>::iterator it;
-	for (it = this->listCross.begin(); it != this->listCross.end(); it++)
+	for (it = listCross.begin(); it != listCross.end(); it++)
 	{
 		(*it)->vAbfertigung();
 	}

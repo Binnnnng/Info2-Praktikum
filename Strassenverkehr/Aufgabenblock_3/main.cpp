@@ -41,16 +41,16 @@ void createTable()
 
 void vAufgabe_9()
 {
-	bInitialisiereGrafik(2000, 2000);
+	bInitialisiereGrafik(1000, 1000);
 
 	ifstream fin("SimuDisplay.dat");
 	if (!fin.good())
 	{
-		cout << "ERROR mit Datei" << endl;
+		cout << "Corrupted File!" << endl;
 	}
 
-	Welt* welt = new Welt();
-	welt->vEinlesenMitGrafik(fin);
+	Welt* world = new Welt();
+	world->vEinlesenMitGrafik(fin);
 
 	dGlobaleZeit = 0.0;
 	double dZeitTakt = 0.1;
@@ -59,7 +59,7 @@ void vAufgabe_9()
 		vSetzeZeit(dGlobaleZeit);
 		vSleep(1);
 
-		welt->vSimulieren();
+		world->vSimulieren();
 
 		dGlobaleZeit += dZeitTakt;
 	}
