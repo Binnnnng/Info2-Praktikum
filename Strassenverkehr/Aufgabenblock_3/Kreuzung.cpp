@@ -4,10 +4,15 @@
 #include "Fahrzeug.h"
 #include <stdlib.h>
 #include <time.h>
+#include "AktivesVO.h"
 
 using namespace std;
 
 Kreuzung::Kreuzung()
+{
+}
+
+Kreuzung::Kreuzung(string namestr) :AktivesVO(namestr)
 {
 }
 
@@ -87,4 +92,18 @@ Weg * Kreuzung::randomWeg(Weg * WegHin)
 	} while (weg == WegHin || WegHin->pGetZugehoerigerWeg() == weg);
 
 	return weg;
+}
+
+double Kreuzung::rtFillLevel()
+{
+	return p_dTankstelle;
+}
+
+istream & Kreuzung::istreamInput(istream & in)
+{
+	AktivesVO::istreamInput(in);
+
+	in >> this->p_dTankstelle;
+
+	return in;
 }

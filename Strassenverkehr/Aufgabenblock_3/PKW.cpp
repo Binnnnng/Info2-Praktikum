@@ -140,3 +140,12 @@ void PKW::vZeichnen(Weg * pWeg)
 {
 	bZeichnePKW(p_sName, pWeg->returnName(),dGetPos(), dGeschwindigkeit(), p_dTankinhalt);
 }
+
+istream & PKW::istreamInput(istream & in)
+{
+	Fahrzeug::istreamInput(in);
+	in >> this->p_dVerbrauch;
+	in >> this->p_dTankvolumen;
+
+	return in;
+}

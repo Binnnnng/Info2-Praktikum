@@ -72,6 +72,12 @@
     <ClInclude Include="Kreuzung.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="ExceptionHandler.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Welt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -122,6 +128,12 @@
     <ClCompile Include="Kreuzung.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="ExceptionHandler.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Welt.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="SimuClient.lib" />
@@ -130,5 +142,8 @@
     <None Include="SimuServer.jar" />
     <None Include="..\Debug\SimuClient.dll" />
     <None Include="CodeBlock.xps" />
+    <None Include="SimuDisplay.dat" />
+    <None Include="Simu.dat" />
+    <None Include="VO.dat" />
   </ItemGroup>
 </Project>

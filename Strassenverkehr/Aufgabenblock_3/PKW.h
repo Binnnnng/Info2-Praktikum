@@ -10,6 +10,7 @@ public:
 	PKW(const PKW& pkw);
 	PKW(string namestr, double MaxGeschwindigkeit, double verbrauch);
 	PKW(string namestr, double MaxGeschwindigkeit, double verbrauch, double volumen);
+	const string type = "PKW";
 	void virtual vAusgabe();
 	void virtual dVerbrauch();
 	void virtual vAbfertigung();
@@ -18,6 +19,7 @@ public:
 	PKW& operator=(const PKW& cpypkw);
 	void virtual vZeichnen(Weg* pWeg);
 	virtual ~PKW();
+	istream virtual & istreamInput(istream& in);
 
 private:
 	void vInitialisierung();

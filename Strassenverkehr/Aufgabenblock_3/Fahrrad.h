@@ -14,6 +14,7 @@ public:
 	void virtual vostreamAusgabe(ostream &out);
 	void virtual vZeichnen(Weg* pWeg);
 	double virtual dGeschwindigkeit();
+	const string type = "Fahrrad";
 
 private:
 	void vInitialisierung();

@@ -4,7 +4,7 @@
 #include "Kreuzung.h"
 
 using namespace std;
-
+extern double dGlobaleZeit;
 
 Streckenende::Streckenende()
 {
@@ -29,4 +29,8 @@ void Streckenende::vBearbeiten()
 	p_pWeg->pGetZielKreuzung()->vTanken(this->p_pFahrzeug);
 	Weg* pNeuerWeg = p_pWeg->pGetZielKreuzung()->randomWeg(this->p_pWeg);
 	pNeuerWeg->vAnnahme(this->p_pFahrzeug);
+	cout << "ZEIT     :" << dGlobaleZeit << endl;
+	cout << "KREUZUNG :" << p_pWeg->pGetZielKreuzung()->returnName()<<"   "<< p_pWeg->pGetZielKreuzung()->rtFillLevel() << endl;
+	cout << "WECHSEL  :" << p_pWeg->returnName() <<"-->"<< pNeuerWeg->returnName() << endl;
+	cout << "FAHRZEUG :" << *p_pFahrzeug << endl;
 }

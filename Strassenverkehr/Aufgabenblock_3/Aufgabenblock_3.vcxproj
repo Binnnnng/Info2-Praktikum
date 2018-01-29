@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="AktivesVO.h" />
     <ClInclude Include="dmath.h" />
+    <ClInclude Include="ExceptionHandler.h" />
     <ClInclude Include="FahrAusnahme.h" />
     <ClInclude Include="Fahrrad.h" />
     <ClInclude Include="Fahrzeug.h" />
@@ -166,10 +167,12 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="tmpDataHolder.h" />
     <ClInclude Include="Weg.h" />
+    <ClInclude Include="Welt.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AktivesVO.cpp" />
     <ClCompile Include="dmath.cpp" />
+    <ClCompile Include="ExceptionHandler.cpp" />
     <ClCompile Include="FahrAusnahme.cpp" />
     <ClCompile Include="Fahrrad.cpp" />
     <ClCompile Include="Fahrzeug.cpp" />
@@ -189,6 +192,7 @@
     <ClCompile Include="Streckenende.cpp" />
     <ClCompile Include="tmpDataHolder.cpp" />
     <ClCompile Include="Weg.cpp" />
+    <ClCompile Include="Welt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="SimuClient.lib" />
@@ -196,7 +200,10 @@
   <ItemGroup>
     <None Include="..\Debug\SimuClient.dll" />
     <None Include="CodeBlock.xps" />
+    <None Include="Simu.dat" />
+    <None Include="SimuDisplay.dat" />
     <None Include="SimuServer.jar" />
+    <None Include="VO.dat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

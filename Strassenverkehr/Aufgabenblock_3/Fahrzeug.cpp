@@ -184,3 +184,11 @@ bool Fahrzeug::activeObject()
 	}
 	return false;
 }
+
+istream & Fahrzeug::istreamInput(istream & in)
+{
+	AktivesVO::istreamInput(in);
+	in >> this->p_dMaxGeschwindigkeit;
+
+	return in;
+}

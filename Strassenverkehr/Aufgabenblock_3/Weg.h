@@ -29,6 +29,7 @@ public:
 	Kreuzung* pGetZielKreuzung();
 	void vSetZugehoerigerWeg(Weg* weg);
 	void vSetZielKreuzung(Kreuzung* cross);
+	const string type = "Weg";
 
 private:
 	double p_dLength;

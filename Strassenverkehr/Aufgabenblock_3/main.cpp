@@ -13,6 +13,9 @@
 #include<stdlib.h>
 #include<time.h>
 #include "Kreuzung.h"
+#include "Welt.h"
+#include <fstream>
+
 
 
 using namespace std;
@@ -36,14 +39,41 @@ void createTable()
 	cout << resetiosflags(ios::left);
 }
 
+void vAufgabe_9()
+{
+	bInitialisiereGrafik(1000, 1000);
+
+	ifstream fin("SimuDisplay.dat");
+	if (!fin.good())
+	{
+		cout << "ERROR mit Datei" << endl;
+	}
+
+	Welt* welt = new Welt();
+	welt->vEinlesenMitGrafik(fin);
+
+	dGlobaleZeit = 0.0;
+	double dZeitTakt = 0.1;
+	while (dGlobaleZeit <= 100)
+	{
+		vSetzeZeit(dGlobaleZeit);
+		vSleep(1);
+
+		welt->vSimulieren();
+
+		dGlobaleZeit += dZeitTakt;
+	}
+
+}
+
 void vAufgabe_8()
 {
 	bInitialisiereGrafik(1000, 1000);
 
-	Kreuzung* KR1 = new Kreuzung();
-	Kreuzung* KR2 = new Kreuzung();
-	Kreuzung* KR3 = new Kreuzung();
-	Kreuzung* KR4 = new Kreuzung();
+	Kreuzung* KR1 = new Kreuzung("KR1");
+	Kreuzung* KR2 = new Kreuzung("KR2");
+	Kreuzung* KR3 = new Kreuzung("KR3");
+	Kreuzung* KR4 = new Kreuzung("KR4");
 
 	KR2->SetTankstelle(1000);
 
@@ -480,7 +510,7 @@ void vAufgabe_1()
 
 int main(void) 
 {
-	vAufgabe_8();
+	vAufgabe_9();
 	return 0;
 }
 

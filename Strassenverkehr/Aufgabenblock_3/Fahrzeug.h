@@ -30,7 +30,8 @@ public:
 	void SetSpeed(double speed);
 	void SetAbschnittStrecke(double strecke);
 	bool activeObject();
-
+	const string type = "Fahrzeug";
+	istream virtual & istreamInput(istream& in);
 private:
 	void vInitialisierung();
 
