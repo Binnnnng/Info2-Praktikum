@@ -41,7 +41,7 @@ void createTable()
 
 void vAufgabe_9()
 {
-	bInitialisiereGrafik(1000, 1000);
+	bInitialisiereGrafik(2000, 2000);
 
 	ifstream fin("SimuDisplay.dat");
 	if (!fin.good())

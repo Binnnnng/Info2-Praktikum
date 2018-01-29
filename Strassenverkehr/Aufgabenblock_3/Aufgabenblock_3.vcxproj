@@ -199,6 +199,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Debug\SimuClient.dll" />
+    <None Include="Aachen-gross.dat" />
+    <None Include="Aachen-klein.dat" />
     <None Include="CodeBlock.xps" />
     <None Include="Simu.dat" />
     <None Include="SimuDisplay.dat" />

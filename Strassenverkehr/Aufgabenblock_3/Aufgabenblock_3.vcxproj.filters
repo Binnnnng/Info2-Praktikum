@@ -145,5 +145,7 @@
     <None Include="SimuDisplay.dat" />
     <None Include="Simu.dat" />
     <None Include="VO.dat" />
+    <None Include="Aachen-gross.dat" />
+    <None Include="Aachen-klein.dat" />
   </ItemGroup>
 </Project>
