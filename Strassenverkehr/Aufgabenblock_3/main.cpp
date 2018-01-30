@@ -53,7 +53,7 @@ void vAufgabe_9()
 	world->vEinlesenMitGrafik(fin);
 
 	dGlobaleZeit = 0.0;
-	double dZeitTakt = 0.1;
+	double Takt = 0.1;
 	while (dGlobaleZeit <= 100)
 	{
 		vSetzeZeit(dGlobaleZeit);
@@ -61,9 +61,9 @@ void vAufgabe_9()
 
 		world->vSimulieren();
 
-		dGlobaleZeit += dZeitTakt;
+		dGlobaleZeit += Takt;
 	}
-
+	vBeendeGrafik();
 }
 
 void vAufgabe_8()
@@ -112,7 +112,10 @@ void vAufgabe_8()
 	PKW* PkwPark = new PKW("Audi", 130, 6, 100);
 	PKW* PkwFahr2 = new PKW("VW", 80, 12, 80);
 	PKW* PkwFahr3 = new PKW("OPEL", 220, 8, 80);
+
 	/*
+	TEST --- zufaellige Wege bei  verlassen von Kreuzungen
+
 	srand(time(NULL));
 	for (int i = 0; i < 12; i++)
 	{
@@ -133,11 +136,10 @@ void vAufgabe_8()
 	
 
 	dGlobaleZeit = 0.0;
-	double dZeitTakt = 0.1;
 	while (dGlobaleZeit <= 100)
 	{
 		vSetzeZeit(dGlobaleZeit);
-		vSleep(200);
+		vSleep(1);
 
 		if (dmath::nearly_equal(dGlobaleZeit, 10.0))
 		{
@@ -149,8 +151,9 @@ void vAufgabe_8()
 		KR3->vAbfertigung();
 		KR4->vAbfertigung();
 
-		dGlobaleZeit += dZeitTakt;
+		dGlobaleZeit += tInkrement;
 	}
+	vBeendeGrafik();
 }
 
 void vAufgabe_7()
@@ -173,7 +176,7 @@ void vAufgabe_7()
 	while (dGlobaleZeit <= 50)
 	{
 		vSetzeZeit(dGlobaleZeit);
-		vSleep(300);
+		vSleep(1);
 		if (dmath::nearly_equal(dGlobaleZeit,27))
 		{
 			WegOrt->vAnnahme(PKW_2, 30);
@@ -510,7 +513,7 @@ void vAufgabe_1()
 
 int main(void) 
 {
-	vAufgabe_9();
+	vAufgabe_7();
 	return 0;
 }
 

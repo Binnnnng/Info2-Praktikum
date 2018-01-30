@@ -11,10 +11,10 @@
 #include "SimuClient.h"
 #include <vector>
 
-const string Welt::KREUZUNGSTAG = "KREUZUNG";
-const string Welt::STRASSENTAG = "STRASSE";
-const string Welt::PKWTAG = "PKW";
-const string Welt::FAHRRADTAG = "FAHRRAD";
+const string Welt::KREUZUNGSKEY = "KREUZUNG";
+const string Welt::STRASSENKEY = "STRASSE";
+const string Welt::PKWKEY = "PKW";
+const string Welt::FAHRRADKEY = "FAHRRAD";
 
 Welt::Welt()
 {
@@ -42,7 +42,7 @@ void Welt::vEinlesenMitGrafik(ifstream & in)
 	}
 	catch (string exceptStr)
 	{
-		cout << exceptStr;
+		cout << exceptStr <<endl;
 	}
 }
 
@@ -55,7 +55,7 @@ void Welt::vParseIfstream(ifstream & ifstreamConfig)
 	ifstreamConfig >> sObjektType;
 	while (!ifstreamConfig.eof())
 	{
-		if (sObjektType == Welt::KREUZUNGSTAG)
+		if (sObjektType == Welt::KREUZUNGSKEY)
 		{
 			Kreuzung* pnewCross = new Kreuzung();
 			ifstreamConfig >> *pnewCross;
@@ -69,7 +69,7 @@ void Welt::vParseIfstream(ifstream & ifstreamConfig)
 
 			bZeichneKreuzung(x, y);
 		}
-		else if (sObjektType == Welt::STRASSENTAG)
+		else if (sObjektType == Welt::STRASSENKEY)
 		{
 			string sNameQ;
 			string sNameZ;
@@ -79,7 +79,7 @@ void Welt::vParseIfstream(ifstream & ifstreamConfig)
 			double dGeschw;
 			int iUeberholverbot;
 			bool bUeberholverbot;
-			int iAnzahlPunkte;
+			int iAnzahlkoords;
 			ifstreamConfig >> sNameQ;
 			ifstreamConfig >> sNameZ;
 			ifstreamConfig >> sNameW1;
@@ -89,13 +89,13 @@ void Welt::vParseIfstream(ifstream & ifstreamConfig)
 			ifstreamConfig >> iUeberholverbot;
 			if (iUeberholverbot != 0 && iUeberholverbot != 1)
 			{
-				ExceptionHandler(2,"Is not boolean" + iUeberholverbot);
+				ExceptionHandler(2,"Is not boolean" +to_string(iUeberholverbot));
 			}
 			bUeberholverbot = (bool)iUeberholverbot;
-			ifstreamConfig >> iAnzahlPunkte;
+			ifstreamConfig >> iAnzahlkoords;
 
 			vector<int> pKoords;
-			for (int i = 0; i < iAnzahlPunkte; i++)
+			for (int i = 0; i < iAnzahlkoords; i++)
 			{
 				int x;
 				int y;
@@ -116,9 +116,9 @@ void Welt::vParseIfstream(ifstream & ifstreamConfig)
 				ExceptionHandler(2,sNameZ + " or " + sNameQ + " is no Crossing");
 			}
 
-			bZeichneStrasse(sNameW1, sNameW2, dLaenge, iAnzahlPunkte, &pKoords[0]);
+			bZeichneStrasse(sNameW1, sNameW2, dLaenge, iAnzahlkoords, &pKoords[0]);
 		}
-		else if (sObjektType == Welt::PKWTAG)
+		else if (sObjektType == Welt::PKWKEY)
 		{
 			PKW* pNewPkw = new PKW();
 			ifstreamConfig >> *pNewPkw;
@@ -130,7 +130,7 @@ void Welt::vParseIfstream(ifstream & ifstreamConfig)
 			Kreuzung* kr = (Kreuzung*)AktivesVO::ptObject(sName);
 			kr->vAnnahme(pNewPkw, dStart);
 		}
-		else if (sObjektType == Welt::FAHRRADTAG)
+		else if (sObjektType == Welt::FAHRRADKEY)
 		{
 			Fahrrad* pNewBike = new Fahrrad();
 			ifstreamConfig >> *pNewBike;
@@ -146,6 +146,6 @@ void Welt::vParseIfstream(ifstream & ifstreamConfig)
 		{
 			ExceptionHandler(2,sObjektType);
 		}
-		ifstreamConfig >> sObjektType;
+		ifstreamConfig >> sObjektType; //input next Object to create
 	}
 }

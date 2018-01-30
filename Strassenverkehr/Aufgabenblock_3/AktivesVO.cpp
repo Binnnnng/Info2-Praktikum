@@ -25,7 +25,7 @@ istream & AktivesVO::istreamInput(istream & in)
 {
 	if (this->p_sName != "")
 	{
-		ExceptionHandler(3,"Only empty Objects can be filled");
+		ExceptionHandler(3,"No empty Objects allowed");
 	}
 	in >> this->p_sName;
 	return in;

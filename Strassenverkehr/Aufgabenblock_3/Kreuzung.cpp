@@ -70,7 +70,7 @@ void Kreuzung::vAddLeaving(Weg * weg)
 	p_pLeaving.push_back(weg);
 }
 
-Weg * Kreuzung::randomWeg(Weg * WegHin)
+Weg * Kreuzung::ptZufaelligerWeg(Weg * WegHin)
 {
 	srand(time(NULL));
 

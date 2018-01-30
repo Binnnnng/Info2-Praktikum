@@ -95,6 +95,7 @@ void Weg::vostreamAusgabe(ostream & out)
 
 void Weg::vAbfertigung()
 {
+	
 	Fahrzeug* tmpData = new tmpDataHolder();
 	tmpData->SetAbschnittStrecke(this->p_dLength);
 	this->p_lastexecuted = tmpData;

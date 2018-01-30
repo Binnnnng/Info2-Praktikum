@@ -21,7 +21,7 @@ public:
 	void vAnnahme(Fahrzeug* fahrzeug, double);
 	void virtual vAbfertigung();
 	void vAddLeaving(Weg* weg);
-	Weg* randomWeg(Weg*);
+	Weg* ptZufaelligerWeg(Weg*);
 	double rtFillLevel();
 	istream virtual & istreamInput(istream& in);
 

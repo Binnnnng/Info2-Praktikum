@@ -27,7 +27,7 @@ void Streckenende::vBearbeiten()
 	cout << *p_pWeg << endl << endl << endl;
 	p_pWeg->vAbgabe(p_pFahrzeug);
 	p_pWeg->pGetZielKreuzung()->vTanken(this->p_pFahrzeug);
-	Weg* pNeuerWeg = p_pWeg->pGetZielKreuzung()->randomWeg(this->p_pWeg);
+	Weg* pNeuerWeg = p_pWeg->pGetZielKreuzung()->ptZufaelligerWeg(this->p_pWeg);
 	pNeuerWeg->vAnnahme(this->p_pFahrzeug);
 	cout << "ZEIT     :" << dGlobaleZeit << endl;
 	cout << "KREUZUNG :" << p_pWeg->pGetZielKreuzung()->returnName()<<"   "<< p_pWeg->pGetZielKreuzung()->rtFillLevel() << endl;
